@@ -94,7 +94,7 @@ func interpolateGPX(ts timestamps, locs locstamps) throwstamps {
 
 	for i, t := range ts {
 		tls = append(tls, throwstamp{
-			i,
+			i + 1,
 			t.time,
 			t.disc,
 			f_lat.At(float64(t.time.UnixNano())),
@@ -105,17 +105,38 @@ func interpolateGPX(ts timestamps, locs locstamps) throwstamps {
 	return throwstamps(tls)
 }
 
+func (ts throwstamps) WriteCSV() {
+	f, err := os.Create("round_raw.csv")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+
+	if err != nil {
+		log.Fatalln("failed to open file", err)
+	}
+
+	w := csv.NewWriter(f)
+	defer w.Flush()
+	w.Write([]string{"num", "time", "disc", "lat", "lon"})
+
+	for _, t := range ts {
+		w.Write([]string{
+			fmt.Sprintf("%d", t.num),
+			t.time.String(),
+			t.disc,
+			fmt.Sprintf("%f", t.lat),
+			fmt.Sprintf("%f", t.lon),
+		})
+	}
+
+}
+
 func main() {
 	ts := parseTimestamp("timestamp.csv")
 
 	gpx := parseGPX("recording.gpx")
 
 	igpx := interpolateGPX(ts, gpx)
-
-	fmt.Println(igpx)
-
-	// Want to record the timezone that was used
-	tz, off := ts[0].time.Zone()
-	fmt.Println(tz, off)
-
+	igpx.WriteCSV()
 }

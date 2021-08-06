@@ -9,14 +9,16 @@ import (
 	"time"
 
 	"github.com/tkrajina/gpxgo/gpx"
+	"github.com/sgreben/piecewiselinear"
 )
 
 type timestamp struct {
 	time time.Time
 	disc string
 }
+type timestamps []timestamp
 
-func parseTimestamp(filename string) []timestamp {
+func parseTimestamp(filename string) timestamps {
 	f, err := os.Open(filename)
 	if err != nil {
 		fmt.Println(err)
@@ -39,37 +41,67 @@ func parseTimestamp(filename string) []timestamp {
 		dt, _ := time.Parse(ts_layout, line[0])
 		ts = append(ts, timestamp{dt, line[1]})
 	}
-	return ts
+	return timestamps(ts)
 }
 
-type location struct {
+type locstamp struct {
 	time time.Time
 	lat  float64
 	lon  float64
 }
+type locstamps []locstamp
 
-func parseGPX(file string) []location {
+func parseGPX(file string) locstamps {
 	t, _ := gpx.ParseFile(file)
 
-	var df []location
+	var df []locstamp
 	for _, track := range t.Tracks {
 		for _, segment := range track.Segments {
 			for _, point := range segment.Points {
-				df = append(df, location{point.Timestamp, point.Latitude, point.Longitude})
+				df = append(df, locstamp{point.Timestamp, point.Latitude, point.Longitude})
 			}
 		}
 	}
-	return df
+	return locstamps(df)
+}
+
+type throwstamp struct {
+	num  int
+	time time.Time
+	disc string
+	lat  float64
+	lon  float64
+}
+type throwstamps []throwstamp
+
+
+func (ts timestamps) timelist() []float64 {
+    var list []float64
+    for _, t := range ts {
+        list = append(list, float64(t.time.UnixNano()))
+    }
+    return list
+}
+
+
+func interpolateGPX(ts timestamps, locs locstamps) throwstamps {
+	var tls []throwstamp
+
+	f := piecewiselinear.Function{
+		X:ts.
+		Y:ts.timelist()
+	}
+
+	return tls
 }
 
 func main() {
-	ts := parseTimestamp("/home/woojac/proj/025_dg_go/test/data/timestamp.csv")
+	ts := parseTimestamp("timestamp.csv")
 
-	// gpx := parseGPX("/home/woojac/proj/025_dg_go/test/data/recording.gpx")
+	// gpx := parseGPX("recording.gpx")
 
 	// Want to record the timezone that was used
 	tz, off := ts[0].time.Zone()
 	fmt.Println(tz, off)
 
-	// fmt.Println((*df_ts)[0])
 }

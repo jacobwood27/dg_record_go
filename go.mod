@@ -15,6 +15,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/rocketlaunchr/dataframe-go v0.0.0-20210422123815-aaa951b82e1b // indirect
+	github.com/sgreben/piecewiselinear v1.1.1 // indirect
 	github.com/tkrajina/gpxgo v1.1.2 // indirect
 	github.com/twpayne/go-geom v1.4.0 // indirect
 	github.com/twpayne/go-gpx v1.2.1 // indirect

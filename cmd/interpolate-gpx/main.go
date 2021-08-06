@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/tkrajina/gpxgo/gpx"
 	"github.com/sgreben/piecewiselinear"
+	"github.com/tkrajina/gpxgo/gpx"
 )
 
 type timestamp struct {
@@ -74,31 +74,45 @@ type throwstamp struct {
 }
 type throwstamps []throwstamp
 
-
-func (ts timestamps) timelist() []float64 {
-    var list []float64
-    for _, t := range ts {
-        list = append(list, float64(t.time.UnixNano()))
-    }
-    return list
-}
-
-
 func interpolateGPX(ts timestamps, locs locstamps) throwstamps {
 	var tls []throwstamp
 
-	f := piecewiselinear.Function{
-		X:ts.
-		Y:ts.timelist()
+	f_lat := piecewiselinear.Function{
+		X: make([]float64, 0),
+		Y: make([]float64, 0),
+	}
+	f_lon := piecewiselinear.Function{
+		X: make([]float64, 0),
+		Y: make([]float64, 0),
+	}
+	for _, l := range locs {
+		f_lat.X = append(f_lat.X, float64(l.time.UnixNano()))
+		f_lat.Y = append(f_lat.Y, l.lat)
+		f_lon.X = append(f_lon.X, float64(l.time.UnixNano()))
+		f_lon.Y = append(f_lon.Y, l.lon)
 	}
 
-	return tls
+	for i, t := range ts {
+		tls = append(tls, throwstamp{
+			i,
+			t.time,
+			t.disc,
+			f_lat.At(float64(t.time.UnixNano())),
+			f_lon.At(float64(t.time.UnixNano())),
+		})
+	}
+
+	return throwstamps(tls)
 }
 
 func main() {
 	ts := parseTimestamp("timestamp.csv")
 
-	// gpx := parseGPX("recording.gpx")
+	gpx := parseGPX("recording.gpx")
+
+	igpx := interpolateGPX(ts, gpx)
+
+	fmt.Println(igpx)
 
 	// Want to record the timezone that was used
 	tz, off := ts[0].time.Zone()

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>DG Viz</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+		}
+
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td,
+		th {
+			border: 1px solid #dddddd;
+			text-align: center;
+			/*padding: 8px;*/
+		}
+
+		table.center {
+			margin: 0px auto;
+			text-align: center;
+		}
+
+
+		#map {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+		}
+
+		h1 {
+			font-size: 20px;
+			line-height: 30px;
+		}
+
+		h2 {
+			font-size: 14px;
+			line-height: 20px;
+			margin-bottom: 5px;
+		}
+
+		a {
+			text-decoration: none;
+			color: #2dc4b2;
+		}
+
+		#console {
+			position: absolute;
+			margin: 10px;
+			width: 240px;
+			background-color: white;
+			padding: 10px 20px;
+		}
+
+		.session {
+			margin-bottom: 20px;
+		}
+
+		.row {
+			height: 20px;
+			width: 100%;
+		}
+
+		.colors {
+			background: linear-gradient(to right,
+					#2dc4b2,
+					#3bb3c3,
+					#669ec4,
+					#8b88b6,
+					#a2719b,
+					#aa5e79);
+			margin-bottom: 5px;
+		}
+
+		.label {
+			width: 15%;
+			display: inline-block;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="map"></div>
+	<div id="console">
+		<h1>Guess and Check</h1>
+		<div class="session">
+			<div class="row">
+				<input id="raw_marks" type="checkbox" name="toggle" value="raw_marks" checked="checked" />
+				<label for="raw_marks">Raw Marks</label>
+			</div>
+			<div class="row">
+				<input id="throws" type="checkbox" name="toggle" value="throws" checked="checked" />
+				<label for="throws">Throws</label>
+			</div>
+		</div>
+		<div class="session">
+			<table id="myTable" class="center">
+				<!-- table-borderless table-striped table-earning">  -->
+				<thead>
+					<tr>
+						<th>Hole</th>
+						<th>Tee</th>
+						<th>Pin</th>
+						<th>Par</th>
+						<th>Score</th>
+						<th>Run</th>
+					</tr>
+				</thead>
+				<tbody id="round_summary"></tbody>
+			</table>
+		</div>
+		<div class="session">
+			<div class="row">
+				<span id="mouse_lat">Lat: </span>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+	<script>
+		mapboxgl.accessToken = 'pk.eyJ1Ijoiandvb2QyNyIsImEiOiJja3Jtajh3aXYxcXRsMnFwZWc0bnJxbDVkIn0.rcjWqatkRc5dLOH0G06z9Q';
+		var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/satellite-v9',
+			center: [-117.058426, 33.079323],
+			zoom: 16
+		});
+		const canvas = map.getCanvasContainer();
+
+		var currentPointName = 0;
+
+
+
+		async function fetchData() {
+			try {
+				const response = await fetch('static/guess_n_check.json');
+				const data = await response.json();
+				return data;
+			} catch (error) {
+				console.error(error);
+			}
+		};
+
+		fetchData().then((data) => {
+
+
+
+			map.on('load', function () {
+
+				map.addSource('round_json', {
+					'type': 'geojson',
+					'data': data
+				});
+
+				map.addLayer({
+					'id': 'throws',
+					'type': 'line',
+					'source': 'round_json',
+					'filter': ['==', 'thing', 'throw'],
+					'paint': { 'line-width': 5, 'line-color': 'white' },
+				});
+
+				map.addLayer({
+					'id': 'raw_marks',
+					'type': 'circle',
+					'source': 'round_json',
+					'filter': ['==', 'thing', 'raw_mark'],
+					'paint': { 'circle-radius': 10 },
+				});
+
+
+
+				// Handle throws
+				map.on('click', 'throws', function (e) {
+					new mapboxgl.Popup()
+						.setLngLat(e.lngLat)
+						.setHTML(e.features[0].properties.hole_res)
+						.addTo(map);
+				});
+
+				map.on('mouseenter', 'throws', () => {
+					canvas.style.cursor = 'pointer';
+				});
+
+				map.on('mouseleave', 'throws', () => {
+					canvas.style.cursor = '';
+				});
+
+
+				// Handle the raw_marks
+				map.on('mouseenter', 'raw_marks', (e) => {
+					map.setPaintProperty('raw_marks', 'circle-color', '#3bb2d0');
+					coords = e.lngLat
+					canvas.style.cursor = 'move';
+				});
+
+				map.on('mouseleave', 'raw_marks', (e) => {
+					map.setPaintProperty('raw_marks', 'circle-color', 'black');
+					coords = e.lngLat
+					canvas.style.cursor = '';
+				});
+
+				function onMove(e) {
+					const coords = e.lngLat;
+					canvas.style.cursor = 'grabbing';
+					data.features[0].geometry.coordinates = [coords.lng, coords.lat];
+					map.getSource('round_json').setData(data);
+				}
+				function onUp(e) {
+					const coords = e.lngLat;
+
+					var currentMarker = data.features.find(obj => {
+						return obj.properties.name === currentPointName;
+					})
+
+					canvas.style.cursor = '';
+
+					map.off('mousemove', onMove);
+					map.off('touchmove', onMove);
+
+					var xhr = new XMLHttpRequest();
+					const url = '/movepoint?num=' + currentPointName + '&lat=' + coords.lat + '&lon=' + coords.lng;
+					xhr.open("GET", url);
+
+					xhr.onreadystatechange = function () {
+						// In local files, status is 0 upon success in Mozilla Firefox
+						if (xhr.readyState === XMLHttpRequest.DONE) {
+							var status = xhr.status;
+							if (status === 0 || (status >= 200 && status < 400)) {
+								// The request has been completed successfully
+								fetchData().then((data) => {
+									map.getSource('round_json').setData(data);
+									console.log('JSON updated')
+								});
+							} else {
+								console.log('Oh no! There has been an error with the request!');
+							}
+						}
+					}
+
+					xhr.send();
+
+				}
+				map.on('mousedown', 'raw_marks', (e) => {
+					e.preventDefault();
+					canvas.style.cursor = 'grab';
+					currentPointName = e.features[0].properties.name;
+					map.on('mousemove', onMove);
+					map.once('mouseup', onUp);
+
+
+				});
+
+			}
+			);
+
+		});
+
+	</script>
+</body>
+
+</html>

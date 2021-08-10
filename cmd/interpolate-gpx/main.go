@@ -10,6 +10,8 @@ import (
 
 	"github.com/sgreben/piecewiselinear"
 	"github.com/tkrajina/gpxgo/gpx"
+
+	"github.com/jacobwood27/go-dg-record/internal/rnd"
 )
 
 type timestamp struct {
@@ -18,7 +20,7 @@ type timestamp struct {
 }
 type timestamps []timestamp
 
-func parseTimestamp(filename string) timestamps {
+func parseTimestampFile(filename string) timestamps {
 	f, err := os.Open(filename)
 	if err != nil {
 		fmt.Println(err)
@@ -51,7 +53,7 @@ type locstamp struct {
 }
 type locstamps []locstamp
 
-func parseGPX(file string) locstamps {
+func parseGPXFile(file string) locstamps {
 	t, _ := gpx.ParseFile(file)
 
 	var df []locstamp
@@ -65,17 +67,8 @@ func parseGPX(file string) locstamps {
 	return locstamps(df)
 }
 
-type throwstamp struct {
-	num  int
-	time time.Time
-	disc string
-	lat  float64
-	lon  float64
-}
-type throwstamps []throwstamp
-
-func interpolateGPX(ts timestamps, locs locstamps) throwstamps {
-	var tls []throwstamp
+func interpolateGPX(ts timestamps, locs locstamps) rnd.Throwstamps {
+	var tls []rnd.Throwstamp
 
 	f_lat := piecewiselinear.Function{
 		X: make([]float64, 0),
@@ -93,50 +86,24 @@ func interpolateGPX(ts timestamps, locs locstamps) throwstamps {
 	}
 
 	for i, t := range ts {
-		tls = append(tls, throwstamp{
-			i + 1,
-			t.time,
-			t.disc,
-			f_lat.At(float64(t.time.UnixNano())),
-			f_lon.At(float64(t.time.UnixNano())),
+		tls = append(tls, rnd.Throwstamp{
+			Num:  i + 1,
+			Time: t.time,
+			Disc: t.disc,
+			Lat:  f_lat.At(float64(t.time.UnixNano())),
+			Lon:  f_lon.At(float64(t.time.UnixNano())),
 		})
 	}
 
-	return throwstamps(tls)
-}
-
-func (ts throwstamps) WriteCSV() {
-	f, err := os.Create("round_raw.csv")
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer f.Close()
-
-	if err != nil {
-		log.Fatalln("failed to open file", err)
-	}
-
-	w := csv.NewWriter(f)
-	defer w.Flush()
-	w.Write([]string{"num", "time", "disc", "lat", "lon"})
-
-	for _, t := range ts {
-		w.Write([]string{
-			fmt.Sprintf("%d", t.num),
-			t.time.String(),
-			t.disc,
-			fmt.Sprintf("%f", t.lat),
-			fmt.Sprintf("%f", t.lon),
-		})
-	}
-
+	return rnd.Throwstamps(tls)
 }
 
 func main() {
-	ts := parseTimestamp("timestamp.csv")
+	ts := parseTimestampFile("timestamp.csv")
 
-	gpx := parseGPX("recording.gpx")
+	gpx := parseGPXFile("recording.gpx")
 
 	igpx := interpolateGPX(ts, gpx)
 	igpx.WriteCSV()
+
 }

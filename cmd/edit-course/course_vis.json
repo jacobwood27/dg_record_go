@@ -1,0 +1,20 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "1_reg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.0585809672133,
+					33.07934198992949
+				]
+			}
+		}
+	]
+}

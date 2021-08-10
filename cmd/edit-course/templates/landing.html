@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>DG Viz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoiandvb2QyNyIsImEiOiJja3Jtajh3aXYxcXRsMnFwZWc0bnJxbDVkIn0.rcjWqatkRc5dLOH0G06z9Q';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-v9',
+            center: [-117.058426, 33.079323],
+            zoom: 16
+        });
+        const canvas = map.getCanvasContainer();
+
+        console.log("Hello");
+        var currentPointName = "";
+
+        async function fetchData() {
+            try {
+                const response = await fetch('data/course_vis.json');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData().then((data) => {
+
+
+            map.on('load', function () {
+
+                console.log(data);
+                map.addSource('round_json', {
+                    'type': 'geojson',
+                    'data': data
+                });
+
+                map.addLayer({
+                    'id': 'POIs',
+                    'type': 'circle',
+                    'source': 'round_json',
+                    'filter': ['==', 'thing', 'tee'],
+                    'paint': { 'circle-radius': 10, 'circle-color': 'white' },
+                });
+
+                // Handle the raw_marks
+                map.on('mouseenter', 'POIs', (e) => {
+                	canvas.style.cursor = 'move';
+                });
+
+                map.on('mouseleave', 'POIs', (e) => {
+                	canvas.style.cursor = '';
+                });
+
+                function onMove(e) {
+                	const coords = e.lngLat;
+                	canvas.style.cursor = 'grabbing';
+                	data.features[0].geometry.coordinates = [coords.lng, coords.lat];
+                	map.getSource('round_json').setData(data);
+                }
+
+                function onUp(e) {
+                	const coords = e.lngLat;
+                	canvas.style.cursor = '';
+
+                	map.off('mousemove', onMove);
+                	map.off('touchmove', onMove);
+
+                	var xhr = new XMLHttpRequest();
+                	const url = '/movepoint?num=' + currentPointName + '&lat=' + coords.lat + '&lon=' + coords.lng;
+                	xhr.open("GET", url);
+
+                	xhr.onreadystatechange = function () {
+                		// In local files, status is 0 upon success in Mozilla Firefox
+                		if (xhr.readyState === XMLHttpRequest.DONE) {
+                			var status = xhr.status;
+                			if (status === 0 || (status >= 200 && status < 400)) {
+                				// The request has been completed successfully
+                				fetchData().then((data) => {
+                					map.getSource('round_json').setData(data);
+                					console.log('JSON updated')
+                				});
+                			} else {
+                				console.log('Oh no! There has been an error with the request!');
+                			}
+                		}
+                	}
+
+                	xhr.send();
+
+                }
+
+                map.on('mousedown', 'POIs', (e) => {
+                	e.preventDefault();
+                	canvas.style.cursor = 'grab';
+
+                	currentPointName = e.features[0].properties.name;
+
+                	map.on('mousemove', onMove);
+                	map.once('mouseup', onUp);
+                });
+
+            }
+            );
+
+        });
+
+    </script>
+</body>
+
+</html>

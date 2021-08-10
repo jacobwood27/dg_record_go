@@ -5,53 +5,51 @@ import (
 	"encoding/csv"
 	"fmt"
 	"html/template"
-	"io"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
-	"time"
 )
 
-type throwstamp struct {
-	num  int
-	time time.Time
-	disc string
-	lat  float64
-	lon  float64
-}
-type throwstamps []throwstamp
+// type throwstamp struct {
+// 	num  int
+// 	time time.Time
+// 	disc string
+// 	lat  float64
+// 	lon  float64
+// }
+// type throwstamps []throwstamp
 
-func parseRoundRaw(filename string) throwstamps {
-	f, err := os.Open(filename)
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer f.Close()
+// func parseRoundRaw(filename string) throwstamps {
+// 	f, err := os.Open(filename)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	defer f.Close()
 
-	r := csv.NewReader(f)
+// 	r := csv.NewReader(f)
 
-	var ts []throwstamp
-	ts_layout := "2006-01-02 15:04:05 -0700"
-	for {
-		line, err := r.Read()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			log.Fatal(err)
-		}
+// 	var ts []throwstamp
+// 	ts_layout := "2006-01-02 15:04:05 -0700"
+// 	for {
+// 		line, err := r.Read()
+// 		if err == io.EOF {
+// 			break
+// 		}
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
 
-		num, _ := strconv.Atoi(line[0])
-		dt, _ := time.Parse(ts_layout, line[1])
-		disc := line[2]
-		lat, _ := strconv.ParseFloat(line[3], 64)
-		lon, _ := strconv.ParseFloat(line[4], 64)
+// 		num, _ := strconv.Atoi(line[0])
+// 		dt, _ := time.Parse(ts_layout, line[1])
+// 		disc := line[2]
+// 		lat, _ := strconv.ParseFloat(line[3], 64)
+// 		lon, _ := strconv.ParseFloat(line[4], 64)
 
-		ts = append(ts, throwstamp{num, dt, disc, lat, lon})
-	}
-	return throwstamps(ts)
-}
+// 		ts = append(ts, throwstamp{num, dt, disc, lat, lon})
+// 	}
+// 	return throwstamps(ts)
+// }
 
 type MovingDot struct {
 	Num int

@@ -14,17 +14,81 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
         }
 
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            /*padding: 8px;*/
+        }
+
+        table.center {
+            margin: 0px auto;
+            text-align: center;
+        }
+
         #map {
             position: absolute;
             top: 0;
             bottom: 0;
             width: 100%;
         }
+
+        #savebutton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            background-color: white;
+        }
+
+        #console {
+            position: absolute;
+            margin: 0px;
+            width: 240px;
+            height: 98%;
+            background-color: white;
+            padding: 10px 20px;
+            overflow: auto;
+        }
+
+        .session {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div id="map"></div>
+
+    <div id="console">
+        <div class="session">
+            <table id="myTable" class="center">
+                <thead>
+                    <tr>
+                        <th>Hole</th>
+                        <th>Tee</th>
+                        <th>Pin</th>
+                        <th>Dist</th>
+                        <th>Par</th>
+                    </tr>
+                </thead>
+                <tbody id="courseSummary"></tbody>
+            </table>
+        </div>
+
+        
+    </div>
+
+    <div class="session" id="savebutton">
+        <form action="/save" method="post">
+            <button type="submit">Save Course Layout</button>
+        </form>
+    </div>
+
 
     <script>
         mapboxgl.accessToken = 'pk.eyJ1Ijoiandvb2QyNyIsImEiOiJja3Jtajh3aXYxcXRsMnFwZWc0bnJxbDVkIn0.rcjWqatkRc5dLOH0G06z9Q';
@@ -36,13 +100,133 @@
         });
         const canvas = map.getCanvasContainer();
 
-        console.log("Hello");
+        function updatePar(e,i) {
+
+            const new_par = e.target.value;
+            const row = i;
+
+            e.preventDefault();
+            var xhr = new XMLHttpRequest();
+            const url = '/newpar?row=' + row + '&par=' + new_par;
+            xhr.open("GET", url);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var status = xhr.status;
+                    if (status == 200) {
+                        fetchData().then((data) => {
+                            map.getSource('round_json').setData(data);
+                            map.triggerRepaint();
+                            console.log('JSON updated')
+                        });
+                    } else {
+                        console.log('Oh no! There has been an error with the request!');
+                    }
+                }
+            };
+
+            xhr.send();
+
+        };
+
+        function loadTableData(items) {
+            var old_tbody = document.getElementById("courseSummary");
+            var new_tbody = document.createElement('tbody');
+            new_tbody.id = "courseSummary";
+            items.forEach(function (item, i) {
+                let row = new_tbody.insertRow();
+                let hole = row.insertCell(0);
+                hole.innerHTML = item.hole;
+                let tee = row.insertCell(1);
+                tee.innerHTML = item.tee;
+                let pin = row.insertCell(2);
+                pin.innerHTML = item.pin;
+                let dist = row.insertCell(3);
+                dist.innerHTML = item.dist;
+                let uuid = Math.floor(Math.random() * 1000000);
+                let pardiv = document.createElement('input');
+                pardiv.size = 1;
+                pardiv.value = item.par;
+                // pardiv.contentEditable = 'true';
+                // pardiv.innerHTML = item.par;
+                let par = row.insertCell(4);
+                par.appendChild(pardiv);
+                pardiv.addEventListener('change', (e) => updatePar(e, i));
+                // pardiv.addEventListener('input', function() {
+                //     console.log('Hey, somebody changed something in my text!');
+                // });//updatePar);
+            });
+            old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
+        };
+
         var currentPointName = "";
+        var currentPoint;
+        var latestData;
+
+        function submitTextInput(e) {
+            const orig_name = e.target[0].defaultValue;
+            const new_name = e.target[0].value;
+            e.preventDefault();
+            var xhr = new XMLHttpRequest();
+            const url = '/text?orig=' + orig_name + '&new=' + new_name;
+            xhr.open("GET", url);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var status = xhr.status;
+                    if (status == 200) {
+                        fetchData().then((data) => {
+                            map.getSource('round_json').setData(data);
+                            map.triggerRepaint();
+                            console.log('JSON updated')
+                        });
+                    } else {
+                        console.log('Oh no! There has been an error with the request!');
+                    }
+                }
+            }
+
+            xhr.send();
+
+        };
+
+        function submitNewPOI(e) {
+            console.log(e)
+            e.preventDefault();
+            const hole = e.target[0].value;
+            const tee = e.target[1].value;
+            const pin = e.target[2].value;
+            const lat = e.target[3].value;
+            const lon = e.target[4].value;
+            var xhr = new XMLHttpRequest();
+            const url = '/newPOI?hole=' + hole + '&tee=' + tee + '&pin=' + pin + '&lat=' + lat + '&lon=' + lon;
+            xhr.open("GET", url);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var status = xhr.status;
+                    if (status == 200) {
+                        fetchData().then((data) => {
+                            map.getSource('round_json').setData(data);
+                            map.triggerRepaint();
+                            console.log('JSON updated')
+                        });
+                    } else {
+                        console.log('Oh no! There has been an error with the request!');
+                    }
+                }
+            }
+
+            xhr.send();
+
+        };
 
         async function fetchData() {
             try {
                 const response = await fetch('data/course_vis.json');
                 const data = await response.json();
+                latestData = data;
+                loadTableData(data.table);
                 return data;
             } catch (error) {
                 console.error(error);
@@ -51,10 +235,8 @@
 
         fetchData().then((data) => {
 
-
             map.on('load', function () {
 
-                console.log(data);
                 map.addSource('round_json', {
                     'type': 'geojson',
                     'data': data
@@ -62,73 +244,159 @@
 
                 map.addLayer({
                     'id': 'POIs',
-                    'type': 'circle',
+                    'type': 'symbol',
                     'source': 'round_json',
-                    'filter': ['==', 'thing', 'tee'],
-                    'paint': { 'circle-radius': 10, 'circle-color': 'white' },
+                    'filter': ['in', 'thing', 'tee', 'pin'],
+                    'paint': {
+                        // 'circle-radius': 10, 
+                        // 'circle-color': 'white',
+                        'text-color': 'black',
+                        'text-halo-color': 'white',
+                        'text-halo-width': 2,
+                    },
+                    'layout': {
+                        'text-field': ['get', 'name'],
+                        'text-allow-overlap': true,
+                        'text-ignore-placement': true,
+                    },
+                });
+
+                map.addLayer({
+                    'id': 'HoleLines',
+                    'type': 'line',
+                    'source': 'round_json',
+                    'filter': ['in', 'thing', 'tee->pin'],
+                    'paint': {
+                        'line-width': 5,
+                        'line-color': [
+                            'interpolate',
+                            ['linear'],
+                            ['number', ['get', 'par']],
+                            3, 'white',
+                            4, 'blue',
+                        ],
+                    },
+                    'layout': {
+                        'line-join': 'round',
+                        'line-cap': 'round',
+                    },
                 });
 
                 // Handle the raw_marks
                 map.on('mouseenter', 'POIs', (e) => {
-                	canvas.style.cursor = 'move';
+                    canvas.style.cursor = 'move';
                 });
 
                 map.on('mouseleave', 'POIs', (e) => {
-                	canvas.style.cursor = '';
+                    canvas.style.cursor = '';
                 });
 
                 function onMove(e) {
-                	const coords = e.lngLat;
-                	canvas.style.cursor = 'grabbing';
-                	data.features[0].geometry.coordinates = [coords.lng, coords.lat];
-                	map.getSource('round_json').setData(data);
+                    const coords = e.lngLat;
+                    canvas.style.cursor = 'grabbing';
+
+                    var currentMarker = latestData.features.find(obj => {
+                        return obj.properties.name === currentPointName
+                    })
+                    currentMarker.geometry.coordinates = [coords.lng, coords.lat];
+
+                    map.getSource('round_json').setData(latestData);
                 }
 
                 function onUp(e) {
-                	const coords = e.lngLat;
-                	canvas.style.cursor = '';
+                    const coords = e.lngLat;
+                    canvas.style.cursor = '';
 
-                	map.off('mousemove', onMove);
-                	map.off('touchmove', onMove);
+                    map.off('mousemove', onMove);
+                    map.off('touchmove', onMove);
 
-                	var xhr = new XMLHttpRequest();
-                	const url = '/movepoint?num=' + currentPointName + '&lat=' + coords.lat + '&lon=' + coords.lng;
-                	xhr.open("GET", url);
+                    var xhr = new XMLHttpRequest();
+                    const url = '/movepoint?name=' + currentPointName + '&lat=' + coords.lat + '&lon=' + coords.lng;
+                    xhr.open("GET", url);
 
-                	xhr.onreadystatechange = function () {
-                		// In local files, status is 0 upon success in Mozilla Firefox
-                		if (xhr.readyState === XMLHttpRequest.DONE) {
-                			var status = xhr.status;
-                			if (status === 0 || (status >= 200 && status < 400)) {
-                				// The request has been completed successfully
-                				fetchData().then((data) => {
-                					map.getSource('round_json').setData(data);
-                					console.log('JSON updated')
-                				});
-                			} else {
-                				console.log('Oh no! There has been an error with the request!');
-                			}
-                		}
-                	}
+                    xhr.onreadystatechange = function () {
+                        // In local files, status is 0 upon success in Mozilla Firefox
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            var status = xhr.status;
+                            if (status == 200) {
+                                // The request has been completed successfully
+                                fetchData().then((data) => {
+                                    map.getSource('round_json').setData(data);
+                                    map.triggerRepaint();
+                                    console.log('JSON updated')
+                                });
+                            } else {
+                                console.log('Oh no! There has been an error with the request!');
+                            }
+                        }
+                    }
 
-                	xhr.send();
+                    xhr.send();
 
                 }
 
                 map.on('mousedown', 'POIs', (e) => {
-                	e.preventDefault();
-                	canvas.style.cursor = 'grab';
+                    if (e.originalEvent.button === 0) {
 
-                	currentPointName = e.features[0].properties.name;
+                        e.preventDefault();
+                        canvas.style.cursor = 'grab';
 
-                	map.on('mousemove', onMove);
-                	map.once('mouseup', onUp);
+                        currentPointName = e.features[0].properties.name;
+
+                        map.on('mousemove', onMove);
+                        map.once('mouseup', onUp);
+                    }
+                });
+
+                map.on('contextmenu', 'POIs', function (e) {
+                    new mapboxgl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(
+                            `
+                        <form id="poiNameUpdate">
+                        <input type="text" size="2" value="${e.features[0].properties.name}"></br>
+                        </form>
+                        `
+                        )
+                        .addTo(map);
+
+                    document.getElementById('poiNameUpdate').addEventListener('submit', submitTextInput);
+
+                });
+
+                map.on('contextmenu', function (e) {
+                    let features = map.queryRenderedFeatures(e.point, {layers:['POIs']});
+                    if(features.length > 0) {
+                        return;
+                    }
+
+                    const coords = e.lngLat;
+                    new mapboxgl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(
+                            `
+                        <form id="newPOI">
+                        <input type="text"   name="hole" size="8" placeholder="Hole [req]"></br>
+                        <input type="text"   name="tee"  size="8" placeholder="Tee [pick 1]"></br>
+                        <input type="text"   name="pin"  size="8" placeholder="Pin [pick 1]"></br>
+                        <input type="hidden" name="lat"  value=${coords.lat}>
+                        <input type="hidden" name="lon"  value=${coords.lng}>
+                        <input type="submit" style="display: none"></br>
+                        </form>
+                        `
+                        )
+                        .addTo(map);
+
+                    document.getElementById('newPOI').addEventListener('submit', submitNewPOI);
+
                 });
 
             }
             );
 
         });
+
+
 
     </script>
 </body>

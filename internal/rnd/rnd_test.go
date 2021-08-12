@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestparseCourseJSON(t *testing.T) {
-	crs := parseCourseJSON("kit_carson_small.json")
+func TestParseCourseJSON(t *testing.T) {
+	crs := ParseCourseJSON("kit_carson_small.json")
 	fmt.Println(crs)
 
 	if crs.ID != "kit_carson" {

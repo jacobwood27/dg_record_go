@@ -1,0 +1,1454 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.0585986555683,
+					33.07933312922124
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.057926,
+					33.079929
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.057802,
+					33.079936
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.05780006680942,
+					33.07994748732632
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.0585986555683,
+						33.07933312922124
+					],
+					[
+						-117.057926,
+						33.079929
+					],
+					[
+						-117.057802,
+						33.079936
+					],
+					[
+						-117.05780006680942,
+						33.07994748732632
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.05761816123476,
+					33.07967634156128
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.057828,
+					33.078944
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.057367,
+					33.079217
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.057326,
+					33.079214
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.0571,
+					33.080416
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.057536,
+					33.080701
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.05784224812618,
+					33.078939986957096
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.05761816123476,
+						33.07967634156128
+					],
+					[
+						-117.057828,
+						33.078944
+					],
+					[
+						-117.057367,
+						33.079217
+					],
+					[
+						-117.057326,
+						33.079214
+					],
+					[
+						-117.0571,
+						33.080416
+					],
+					[
+						-117.057536,
+						33.080701
+					],
+					[
+						-117.05784224812618,
+						33.078939986957096
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.05776545973936,
+					33.08041861915078
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.058337,
+					33.079645
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.058868,
+					33.079439
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.0588,
+					33.079428
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.05878,
+					33.079462
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.05776545973936,
+						33.08041861915078
+					],
+					[
+						-117.058337,
+						33.079645
+					],
+					[
+						-117.058868,
+						33.079439
+					],
+					[
+						-117.0588,
+						33.079428
+					],
+					[
+						-117.05878,
+						33.079462
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.05931619896387,
+					33.07930465948152
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.060203,
+					33.07914
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061076,
+					33.080867
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061128,
+					33.081365
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.06102,
+					33.08135
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061029,
+					33.081821
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061091,
+					33.081995
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061022,
+					33.082225
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.060771,
+					33.082893
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.060814,
+					33.08287
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061269,
+					33.083915
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061296,
+					33.084116
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061322,
+					33.084477
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061615,
+					33.083658
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.06018525868609,
+					33.0791398447235
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.05931619896387,
+						33.07930465948152
+					],
+					[
+						-117.060203,
+						33.07914
+					],
+					[
+						-117.061076,
+						33.080867
+					],
+					[
+						-117.061128,
+						33.081365
+					],
+					[
+						-117.06102,
+						33.08135
+					],
+					[
+						-117.061029,
+						33.081821
+					],
+					[
+						-117.061091,
+						33.081995
+					],
+					[
+						-117.061022,
+						33.082225
+					],
+					[
+						-117.060771,
+						33.082893
+					],
+					[
+						-117.060814,
+						33.08287
+					],
+					[
+						-117.061269,
+						33.083915
+					],
+					[
+						-117.061296,
+						33.084116
+					],
+					[
+						-117.061322,
+						33.084477
+					],
+					[
+						-117.061615,
+						33.083658
+					],
+					[
+						-117.06018525868609,
+						33.0791398447235
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.06187031312585,
+					33.08342946806623
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061582,
+					33.083755
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.06166555036445,
+					33.084507334393805
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.06187031312585,
+						33.08342946806623
+					],
+					[
+						-117.061582,
+						33.083755
+					],
+					[
+						-117.06166555036445,
+						33.084507334393805
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061425,
+					33.084562
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061661,
+					33.083696
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.061425,
+						33.084562
+					],
+					[
+						-117.061661,
+						33.083696
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061425,
+					33.084562
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061516,
+					33.084843
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061988,
+					33.084741
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062365,
+					33.083882
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062322,
+					33.08395
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061661,
+					33.083696
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.061425,
+						33.084562
+					],
+					[
+						-117.061516,
+						33.084843
+					],
+					[
+						-117.061988,
+						33.084741
+					],
+					[
+						-117.062365,
+						33.083882
+					],
+					[
+						-117.062322,
+						33.08395
+					],
+					[
+						-117.061661,
+						33.083696
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062232,
+					33.083667
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061834,
+					33.082914
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061413,
+					33.082478
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061402,
+					33.081368
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061293,
+					33.081506
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062077,
+					33.082548
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.062232,
+						33.083667
+					],
+					[
+						-117.061834,
+						33.082914
+					],
+					[
+						-117.061413,
+						33.082478
+					],
+					[
+						-117.061402,
+						33.081368
+					],
+					[
+						-117.061293,
+						33.081506
+					],
+					[
+						-117.062077,
+						33.082548
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061564,
+					33.081755
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061697,
+					33.081056
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061754,
+					33.081095
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061776,
+					33.081031
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.061564,
+						33.081755
+					],
+					[
+						-117.061697,
+						33.081056
+					],
+					[
+						-117.061754,
+						33.081095
+					],
+					[
+						-117.061776,
+						33.081031
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062125,
+					33.081177
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062625,
+					33.080485
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062528,
+					33.080499
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062514,
+					33.080501
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.062125,
+						33.081177
+					],
+					[
+						-117.062625,
+						33.080485
+					],
+					[
+						-117.062528,
+						33.080499
+					],
+					[
+						-117.062514,
+						33.080501
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062235,
+					33.080489
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062435,
+					33.080193
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062578,
+					33.079873
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.06257,
+					33.079912
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.062235,
+						33.080489
+					],
+					[
+						-117.062435,
+						33.080193
+					],
+					[
+						-117.062578,
+						33.079873
+					],
+					[
+						-117.06257,
+						33.079912
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.06245,
+					33.079649
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061433,
+					33.079341
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061276,
+					33.079527
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061299,
+					33.079534
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "holestring",
+				"disc_name": "",
+				"name": "",
+				"par": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.06245,
+						33.079649
+					],
+					[
+						-117.061433,
+						33.079341
+					],
+					[
+						-117.061276,
+						33.079527
+					],
+					[
+						-117.061299,
+						33.079534
+					]
+				]
+			}
+		}
+	],
+	"table": null
+}

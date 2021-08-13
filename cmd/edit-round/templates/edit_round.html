@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>DG Viz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            /*padding: 8px;*/
+        }
+
+        table.center {
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #savebutton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            background-color: white;
+        }
+
+        #console {
+            position: absolute;
+            margin: 0px;
+            width: 300px;
+            height: 60%;
+            background-color: white;
+            padding: 10px 20px;
+            overflow: auto;
+        }
+
+        .session {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="console">
+        <div class="session">
+            <table id="myTable" class="center">
+                <thead>
+                    <tr>
+                        <th>Hole</th>
+                        <th>Tee</th>
+                        <th>Pin</th>
+                        <th>Dist</th>
+                        <th>Par</th>
+                        <th>Score</th>
+                        <th>Res</th>
+                        <th>Tot</th>
+                    </tr>
+                </thead>
+                <tbody id="roundSummary"></tbody>
+            </table>
+        </div>
+
+        
+    </div>
+
+    <div class="session" id="savebutton">
+        <form action="/save" method="post">
+            <button type="submit">Save Round</button>
+        </form>
+    </div>
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoiandvb2QyNyIsImEiOiJja3Jtajh3aXYxcXRsMnFwZWc0bnJxbDVkIn0.rcjWqatkRc5dLOH0G06z9Q';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-v9',
+            center: [-117.058426, 33.079323],
+            zoom: 16
+        });
+        const canvas = map.getCanvasContainer();
+
+        function loadTableData(items) {
+            var old_tbody = document.getElementById("roundSummary");
+            var new_tbody = document.createElement('tbody');
+            new_tbody.id = "roundSummary";
+            items.forEach(function (item, i) {
+                let row = new_tbody.insertRow();
+                let hole = row.insertCell(0);
+                hole.innerHTML = item.hole;
+                let tee = row.insertCell(1);
+                tee.innerHTML = item.tee;
+                let pin = row.insertCell(2);
+                pin.innerHTML = item.pin;
+                let dist = row.insertCell(3);
+                dist.innerHTML = item.dist;
+                let par = row.insertCell(4);
+                par.innerHTML = item.par;
+                let score = row.insertCell(5);
+                score.innerHTML = item.score;
+                let res = row.insertCell(6);
+                res.innerHTML = item.res;
+                let tot = row.insertCell(7);
+                tot.innerHTML = item.tot;
+            });
+            old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
+        };
+
+        var currentPointName = "";
+        var currentPoint;
+        var latestData;
+
+        function submitTextInput(e) {
+            const orig_name = e.target[0].defaultValue;
+            const new_name = e.target[0].value;
+            e.preventDefault();
+            var xhr = new XMLHttpRequest();
+            const url = '/text?orig=' + orig_name + '&new=' + new_name;
+            xhr.open("GET", url);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var status = xhr.status;
+                    if (status == 200) {
+                        fetchData().then((data) => {
+                            map.getSource('round_json').setData(data);
+                            map.triggerRepaint();
+                            console.log('JSON updated')
+                        });
+                    } else {
+                        console.log('Oh no! There has been an error with the request!');
+                    }
+                }
+            }
+
+            xhr.send();
+
+        };
+
+        function submitNewPOI(e) {
+            console.log(e)
+            e.preventDefault();
+            const hole = e.target[0].value;
+            const tee = e.target[1].value;
+            const pin = e.target[2].value;
+            const lat = e.target[3].value;
+            const lon = e.target[4].value;
+            var xhr = new XMLHttpRequest();
+            const url = '/newPOI?hole=' + hole + '&tee=' + tee + '&pin=' + pin + '&lat=' + lat + '&lon=' + lon;
+            xhr.open("GET", url);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var status = xhr.status;
+                    if (status == 200) {
+                        fetchData().then((data) => {
+                            map.getSource('round_json').setData(data);
+                            map.triggerRepaint();
+                            console.log('JSON updated')
+                        });
+                    } else {
+                        console.log('Oh no! There has been an error with the request!');
+                    }
+                }
+            }
+
+            xhr.send();
+
+        };
+
+        async function fetchData() {
+            try {
+                const response = await fetch('data/round_vis.json');
+                const data = await response.json();
+                latestData = data;
+                loadTableData(data.table);
+                return data;
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData().then((data) => {
+
+            map.on('load', function () {
+
+                map.addSource('round_json', {
+                    'type': 'geojson',
+                    'data': data
+                });
+
+                map.addLayer({
+                    'id': 'stamps',
+                    'type': 'circle',
+                    'source': 'round_json',
+                    'filter': ['in', 'thing', 'stamp'],
+                    'paint': {
+                        'circle-radius': 10, 
+                        'circle-color': 'white',
+                        // 'text-color': 'black',
+                        // 'text-halo-color': 'white',
+                        // 'text-halo-width': 2,
+                    },
+                    'layout': {
+                        // 'text-field': ['get', 'name'],
+                        // 'text-allow-overlap': true,
+                        // 'text-ignore-placement': true,
+                    },
+                });
+
+                map.addLayer({
+                    'id': 'throws',
+                    'type': 'line',
+                    'source': 'round_json',
+                    'filter': ['in', 'thing', 'throw'],
+                    'paint': {
+                        'line-width': 5,
+                        // 'line-color': [
+                        //     'interpolate',
+                        //     ['linear'],
+                        //     ['number', ['get', 'par']],
+                        //     3, 'white',
+                        //     4, 'blue',
+                        // ],
+                    },
+                    'layout': {
+                        'line-join': 'round',
+                        'line-cap': 'round',
+                    },
+                });
+
+                map.addLayer({
+                    'id': 'walks',
+                    'type': 'line',
+                    'source': 'round_json',
+                    'filter': ['in', 'thing', 'walk'],
+                    'paint': {
+                        'line-width': 5,
+                        'line-dasharray': [0, 2],
+                        'line-color': 'white',
+                        // 'line-color': [
+                        //     'interpolate',
+                        //     ['linear'],
+                        //     ['number', ['get', 'par']],
+                        //     3, 'white',
+                        //     4, 'blue',
+                        // ],
+                    },
+                    'layout': {
+                        'line-join': 'round',
+                        'line-cap': 'round',
+                    },
+                });
+
+                map.addLayer({
+                    'id': 'POIs',
+                    'type': 'symbol',
+                    'source': 'round_json',
+                    'filter': ['in', 'thing', 'tee', 'pin'],
+                    'paint': {
+                        // 'circle-radius': 10, 
+                        // 'circle-color': 'white',
+                        'text-color': 'black',
+                        'text-halo-color': 'white',
+                        'text-halo-width': 2,
+                    },
+                    'layout': {
+                        'text-field': ['get', 'name'],
+                        'text-allow-overlap': true,
+                        'text-ignore-placement': true,
+                    },
+                });
+
+                // Handle the raw_marks
+                map.on('mouseenter', 'stamps', (e) => {
+                    canvas.style.cursor = 'move';
+                });
+
+                map.on('mouseleave', 'stamps', (e) => {
+                    canvas.style.cursor = '';
+                });
+
+                function onMove(e) {
+                    const coords = e.lngLat;
+                    canvas.style.cursor = 'grabbing';
+
+                    var currentMarker = latestData.features.find(obj => {
+                        return obj.properties.name === currentPointName
+                    })
+                    currentMarker.geometry.coordinates = [coords.lng, coords.lat];
+
+                    map.getSource('round_json').setData(latestData);
+                }
+
+                function onUp(e) {
+                    const coords = e.lngLat;
+                    canvas.style.cursor = '';
+
+                    map.off('mousemove', onMove);
+                    map.off('touchmove', onMove);
+
+                    var xhr = new XMLHttpRequest();
+                    const url = '/movepoint?name=' + currentPointName + '&lat=' + coords.lat + '&lon=' + coords.lng;
+                    xhr.open("GET", url);
+
+                    xhr.onreadystatechange = function () {
+                        // In local files, status is 0 upon success in Mozilla Firefox
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            var status = xhr.status;
+                            if (status == 200) {
+                                // The request has been completed successfully
+                                fetchData().then((data) => {
+                                    map.getSource('round_json').setData(data);
+                                    map.triggerRepaint();
+                                    console.log('JSON updated')
+                                });
+                            } else {
+                                console.log('Oh no! There has been an error with the request!');
+                            }
+                        }
+                    }
+
+                    xhr.send();
+
+                }
+
+
+                // Handle the raw_marks
+                map.on('mouseenter', 'throws', (e) => {
+                    canvas.style.cursor = 'pointer';
+                });
+                map.on('mouseleave', 'throws', (e) => {
+                    canvas.style.cursor = '';
+                });
+                // Left click on a throw to add a point
+                map.on('click', 'throws', (e) => {
+                    currentThrowName = e.features[0].properties.name;
+                    const coords = e.lngLat;
+
+                    var xhr = new XMLHttpRequest();
+                        const url = '/addpoint?name=' + currentThrowName + '&lat=' + coords.lat + '&lon=' + coords.lng;
+                        xhr.open("GET", url);
+
+                        xhr.onreadystatechange = function () {
+                            // In local files, status is 0 upon success in Mozilla Firefox
+                            if (xhr.readyState === XMLHttpRequest.DONE) {
+                                var status = xhr.status;
+                                if (status == 200) {
+                                    // The request has been completed successfully
+                                    fetchData().then((data) => {
+                                        map.getSource('round_json').setData(data);
+                                        map.triggerRepaint();
+                                        console.log('JSON updated')
+                                    });
+                                } else {
+                                    console.log('Oh no! There has been an error with the request!');
+                                }
+                            }
+                        }
+
+                        xhr.send();
+                });
+
+                map.on('mouseenter', 'walks', (e) => {
+                    canvas.style.cursor = 'pointer';
+                });
+                map.on('mouseleave', 'walks', (e) => {
+                    canvas.style.cursor = '';
+                });
+                // Left click on a throw to add a point
+                map.on('click', 'walks', (e) => {
+                    currentThrowName = e.features[0].properties.name;
+                    const coords = e.lngLat;
+
+                    var xhr = new XMLHttpRequest();
+                        const url = '/addpoint?name=' + currentThrowName + '&lat=' + coords.lat + '&lon=' + coords.lng;
+                        xhr.open("GET", url);
+
+                        xhr.onreadystatechange = function () {
+                            // In local files, status is 0 upon success in Mozilla Firefox
+                            if (xhr.readyState === XMLHttpRequest.DONE) {
+                                var status = xhr.status;
+                                if (status == 200) {
+                                    // The request has been completed successfully
+                                    fetchData().then((data) => {
+                                        map.getSource('round_json').setData(data);
+                                        map.triggerRepaint();
+                                        console.log('JSON updated')
+                                    });
+                                } else {
+                                    console.log('Oh no! There has been an error with the request!');
+                                }
+                            }
+                        }
+
+                        xhr.send();
+                });
+
+                // Right click to delete a point
+                map.on('mousedown', 'stamps', (e) => {
+                    if (e.originalEvent.button === 2) {
+                        currentPointName = e.features[0].properties.name;
+                        
+                        var xhr = new XMLHttpRequest();
+                        const url = '/deletepoint?name=' + currentPointName;
+                        xhr.open("GET", url);
+
+                        xhr.onreadystatechange = function () {
+                            // In local files, status is 0 upon success in Mozilla Firefox
+                            if (xhr.readyState === XMLHttpRequest.DONE) {
+                                var status = xhr.status;
+                                if (status == 200) {
+                                    // The request has been completed successfully
+                                    fetchData().then((data) => {
+                                        map.getSource('round_json').setData(data);
+                                        map.triggerRepaint();
+                                        console.log('JSON updated')
+                                    });
+                                } else {
+                                    console.log('Oh no! There has been an error with the request!');
+                                }
+                            }
+                        }
+
+                        xhr.send();
+                    }
+                });
+
+                map.on('mousedown', 'stamps', (e) => {
+                    if (e.originalEvent.button === 0) {
+
+                        e.preventDefault();
+                        canvas.style.cursor = 'grab';
+
+                        currentPointName = e.features[0].properties.name;
+
+                        map.on('mousemove', onMove);
+                        map.once('mouseup', onUp);
+                    }
+                });
+
+                // map.on('contextmenu', 'POIs', function (e) {
+                //     new mapboxgl.Popup()
+                //         .setLngLat(e.lngLat)
+                //         .setHTML(
+                //             `
+                //         <form id="poiNameUpdate">
+                //         <input type="text" size="2" value="${e.features[0].properties.name}"></br>
+                //         </form>
+                //         `
+                //         )
+                //         .addTo(map);
+
+                //     document.getElementById('poiNameUpdate').addEventListener('submit', submitTextInput);
+
+                // });
+
+                // map.on('contextmenu', function (e) {
+                //     let features = map.queryRenderedFeatures(e.point, {layers:['POIs']});
+                //     if(features.length > 0) {
+                //         return;
+                //     }
+
+                //     const coords = e.lngLat;
+                //     new mapboxgl.Popup()
+                //         .setLngLat(e.lngLat)
+                //         .setHTML(
+                //             `
+                //         <form id="newPOI">
+                //         <input type="text"   name="hole" size="8" placeholder="Hole [req]"></br>
+                //         <input type="text"   name="tee"  size="8" placeholder="Tee [pick 1]"></br>
+                //         <input type="text"   name="pin"  size="8" placeholder="Pin [pick 1]"></br>
+                //         <input type="hidden" name="lat"  value=${coords.lat}>
+                //         <input type="hidden" name="lon"  value=${coords.lng}>
+                //         <input type="submit" style="display: none"></br>
+                //         </form>
+                //         `
+                //         )
+                //         .addTo(map);
+
+                //     document.getElementById('newPOI').addEventListener('submit', submitNewPOI);
+
+                // });
+
+            }
+            );
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

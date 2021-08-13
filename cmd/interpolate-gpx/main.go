@@ -67,8 +67,8 @@ func parseGPXFile(file string) locstamps {
 	return locstamps(df)
 }
 
-func interpolateGPX(ts timestamps, locs locstamps) rnd.Throwstamps {
-	var tls []rnd.Throwstamp
+func interpolateGPX(ts timestamps, locs locstamps) rnd.Stamps {
+	var tls []rnd.Stamp
 
 	f_lat := piecewiselinear.Function{
 		X: make([]float64, 0),
@@ -85,17 +85,17 @@ func interpolateGPX(ts timestamps, locs locstamps) rnd.Throwstamps {
 		f_lon.Y = append(f_lon.Y, l.lon)
 	}
 
-	for i, t := range ts {
-		tls = append(tls, rnd.Throwstamp{
-			Num:  i + 1,
-			Time: t.time,
+	for _, t := range ts {
+		tls = append(tls, rnd.Stamp{
+			Loc: rnd.Loc{
+				f_lat.At(float64(t.time.UnixNano())),
+				f_lon.At(float64(t.time.UnixNano())),
+			},
 			Disc: t.disc,
-			Lat:  f_lat.At(float64(t.time.UnixNano())),
-			Lon:  f_lon.At(float64(t.time.UnixNano())),
 		})
 	}
 
-	return rnd.Throwstamps(tls)
+	return rnd.Stamps(tls)
 }
 
 func main() {
@@ -104,6 +104,7 @@ func main() {
 	gpx := parseGPXFile("recording.gpx")
 
 	igpx := interpolateGPX(ts, gpx)
-	igpx.WriteCSV()
 
+	fID := ts[0].time.Format("2006-01-02-15-04-05")
+	igpx.WriteRoundRawCSV(fID)
 }

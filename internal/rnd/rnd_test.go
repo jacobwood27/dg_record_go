@@ -69,7 +69,7 @@ func TestParseRoundRaw(t *testing.T) {
 		t.Error("Got wrong first Pin ID")
 	}
 
-	if round.Holes[0].Score != 3 {
+	if round.Holes[0].Score() != 3 {
 		t.Error("Got wrong first score")
 	}
 

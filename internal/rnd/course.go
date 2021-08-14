@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"math"
 	"os"
+	"path"
 )
 
 type Properties struct {
@@ -151,4 +152,27 @@ func ParseCourseJSON(filename string) Course {
 func (c Course) SaveCourseJSON() {
 	file, _ := json.MarshalIndent(c, "", "	")
 	_ = ioutil.WriteFile(c.ID+".json", file, 0644)
+}
+
+func inferCourse(l Loc) Course {
+	crs_path := path.Join(RootDir(), "..", "data", "courses")
+	fmt.Println(crs_path)
+	files, e := os.ReadDir(crs_path)
+	if e != nil {
+		panic(e)
+	}
+
+	best_c := Course{}
+	best_dist := 999.9
+	for _, file := range files {
+		c := ParseCourseJSON(path.Join(crs_path, file.Name()))
+		this_dist := dist(c.Loc, l)
+
+		if this_dist < best_dist {
+			best_c = c
+			best_dist = this_dist
+		}
+	}
+
+	return best_c
 }

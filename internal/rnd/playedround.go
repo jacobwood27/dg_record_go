@@ -4,7 +4,9 @@ import (
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
+	"log"
 	"math"
 	"os"
 	"path"
@@ -13,58 +15,59 @@ import (
 	"strconv"
 )
 
-type PlayedHole struct {
+type RoundRow struct {
+	RowNum int     `json:"-"`
 	HoleID string  `json:"hole"`
 	TeeID  string  `json:"tee"`
 	PinID  string  `json:"pin"`
-	Par    int     `json:"par"`
-	Stamps []Stamp `json:"stamps"`
+	Lat    float64 `json:"lat"`
+	Lon    float64 `json:"lon"`
+	Disc   string  `json:"disc"`
 }
 
+type RoundTable []RoundRow
+
 type Round struct {
-	ID      string       `json:"roundID"`
-	CrsID   string       `json:"courseID"`
-	CrsName string       `json:"courseName"`
-	Holes   []PlayedHole `json:"holes"`
+	ID         string     `json:"roundID"`
+	CourseID   string     `json:"courseID"`
+	CourseName string     `json:"courseName"`
+	Course     Course     `json:"-"`
+	Data       RoundTable `json:"roundData"`
+	Notes      string     `json:"notes"`
+}
+
+type HoleScoreSummary struct {
+	Hole   string  `json:"hole"`
+	Tee    string  `json:"tee"`
+	Pin    string  `json:"pin"`
+	Dist   float64 `json:"dist"`
+	Par    int     `json:"par"`
+	Score  int     `json:"score"`
+	Result int     `json:"res"`
+	Total  int     `json:"tot"`
+}
+type RoundScoreSummary []HoleScoreSummary
+
+type Disc struct {
+	ID    string `json:"id"`
+	Image string `json:"image"`
 }
 
 type RoundGEOJSON struct {
 	Type     string            `json:"type"`
+	Discs    []Disc            `json:"discs"`
 	Features []Feature         `json:"features"`
 	Table    RoundScoreSummary `json:"table"`
 }
 
-func (ph PlayedHole) Score() int {
-	return len(ph.Stamps) - 1
+func (rr RoundRow) Loc() Loc {
+	return Loc{rr.Lat, rr.Lon}
 }
 
 func RootDir() string {
 	_, b, _, _ := runtime.Caller(0)
 	d := path.Join(path.Dir(b))
 	return filepath.Dir(d)
-}
-
-func inferCourse(l Loc) Course {
-	crs_path := path.Join(RootDir(), "..", "data", "courses")
-	fmt.Println(crs_path)
-	files, e := os.ReadDir(crs_path)
-	if e != nil {
-		panic(e)
-	}
-
-	best_c := Course{}
-	best_dist := 999.9
-	for _, file := range files {
-		c := ParseCourseJSON(path.Join(crs_path, file.Name()))
-		this_dist := dist(c.Loc, l)
-
-		if this_dist < best_dist {
-			best_c = c
-			best_dist = this_dist
-		}
-	}
-
-	return best_c
 }
 
 func inferHole(l Loc, c Course) (Hole, Tee) {
@@ -104,183 +107,15 @@ func inferPin(l Loc, h Hole) Pin {
 	return bestP
 }
 
-func processRoundRaw(ts Stamps, c Course) []PlayedHole {
-	teeThresh := 10.0
-
-	var phs []PlayedHole
-
-	ph := PlayedHole{}
-	h, t := inferHole(ts[0].Loc, c)
-	ph.HoleID = h.ID
-	ph.TeeID = t.ID
-	ph.Stamps = append(ph.Stamps, Stamp{
-		Loc:  t.Loc,
-		Disc: ts[0].Disc,
-	})
-	for i, s := range ts[1:] {
-
-		h_n, t_n := inferHole(s.Loc, c)
-		d := dist(s.Loc, t_n.Loc)
-
-		if d < teeThresh {
-			// then add a pin to the previous hole
-			p := inferPin(ts[i-1].Loc, h)
-			ph.Stamps = append(ph.Stamps, Stamp{
-				Loc:  p.Loc,
-				Disc: "BASKET",
-			})
-			ph.PinID = p.ID
-			ph.Par = h.Par(ph.TeeID, ph.PinID)
-			phs = append(phs, ph)
-
-			// and initialize a new one
-			ph.Stamps = nil
-			ph = PlayedHole{
-				HoleID: h_n.ID,
-				TeeID:  t_n.ID,
-				Stamps: []Stamp{{
-					Loc:  t_n.Loc,
-					Disc: s.Disc,
-				}},
-			}
-
-			h = h_n
-			t = t_n
-		} else {
-			ph.Stamps = append(ph.Stamps, s)
-		}
-
-	}
-
-	// and don't forget the last pin
-	p := inferPin(ts[len(ts)-1].Loc, h)
-	ph.Stamps = append(ph.Stamps, Stamp{
-		Loc:  p.Loc,
-		Disc: "BASKET",
-	})
-	ph.PinID = p.ID
-	ph.Par = h.Par(ph.TeeID, ph.PinID)
-	phs = append(phs, ph)
-
-	return phs
-}
-
-func ParseRoundRaw(fileID string) (Round, Stamps) {
-	ts := ReadRoundRawCSV(fileID)
-
-	course := inferCourse(ts[0].Loc)
-
-	rndID := fileID + "_-_" + course.ID
-
-	PH := processRoundRaw(ts, course)
-
-	r := Round{
-		ID:      rndID,
-		CrsID:   course.ID,
-		CrsName: course.Name,
-		Holes:   PH,
-	}
-
-	return r, ts
-}
-
-func (r Round) WriteRoundJSON() {
-	file, _ := json.MarshalIndent(r, "", "	")
-	_ = ioutil.WriteFile(r.ID+".json", file, 0644)
-}
-
-func ParseRoundJSON(filename string) Round {
-	jsonFile, err := os.Open(filename)
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	var rnd Round
-	json.Unmarshal([]byte(byteValue), &rnd)
-
-	return rnd
-}
-
-func (r Round) MakeRoundVis() {
-
-	var features []Feature
-	for _, h := range r.Holes {
-		holestring := [][]float64{}
-		for _, s := range h.Stamps {
-			geom := Geometry{
-				Type:        "Point",
-				Coordinates: []float64{s.Loc[1], s.Loc[0]},
-			}
-			f := Feature{
-				Type: "Feature",
-				Properties: Properties{
-					Thing: "stamp",
-				},
-				Geometry: geom,
-			}
-			features = append(features, f)
-
-			holestring = append(holestring, []float64{s.Loc[1], s.Loc[0]})
-		}
-		geom := Geometry{
-			Type:        "LineString",
-			Coordinates: holestring,
-		}
-		f := Feature{
-			Type: "Feature",
-			Properties: Properties{
-				Thing: "holestring",
-			},
-			Geometry: geom,
-		}
-		features = append(features, f)
-	}
-
-	rgj := RoundGEOJSON{
-		Type:     "FeatureCollection",
-		Features: features,
-	}
-
-	file, _ := json.MarshalIndent(rgj, "", "	")
-	_ = ioutil.WriteFile("round_vis.json", file, 0644)
-}
-
-type RoundTidyRow struct {
-	RowNum int     `json:"-"`
-	HoleID string  `json:"hole"`
-	TeeID  string  `json:"tee"`
-	PinID  string  `json:"pin"`
-	Lat    float64 `json:"lat"`
-	Lon    float64 `json:"lon"`
-	Disc   string  `json:"disc"`
-}
-
-func (rtr RoundTidyRow) Loc() Loc {
-	return Loc{rtr.Lat, rtr.Lon}
-}
-
-type RoundTidyTable []RoundTidyRow
-
-func (rtt RoundTidyTable) getStamps() Stamps {
+func (rt RoundTable) getStamps() Stamps {
 	s := Stamps{}
-	for _, r := range rtt {
+	for _, r := range rt {
 		s = append(s, Stamp{
 			Loc:  r.Loc(),
 			Disc: r.Disc,
 		})
 	}
 	return s
-}
-
-type RoundTidy struct {
-	ID         string         `json:"roundID"`
-	CourseID   string         `json:"courseID"`
-	CourseName string         `json:"courseName"`
-	Course     Course         `json:"-"`
-	Data       RoundTidyTable `json:"roundData"`
 }
 
 func remove(s Stamps, i int) Stamps {
@@ -293,43 +128,43 @@ func insert(s Stamps, i int, value Stamp) Stamps {
 	return s
 }
 
-func (rt *RoundTidy) DeleteLine(idx int) {
-	ts := rt.Data.getStamps()
+func (r *Round) DeleteLine(idx int) {
+	ts := r.Data.getStamps()
 	ts = remove(ts, idx)
-	c := rt.Course
-	rtt := ProcessRoundRawWithPinStamp(ts, c)
+	c := r.Course
+	rt := ProcessStamps(ts, c)
 
-	rt.Data = rtt
+	r.Data = rt
 }
 
-func (rt *RoundTidy) AddLine(idx int, lat float64, lon float64) {
-	ts := rt.Data.getStamps()
+func (r *Round) AddLine(idx int, lat float64, lon float64) {
+	ts := r.Data.getStamps()
 	s := Stamp{
 		Loc:  Loc{lat, lon},
-		Disc: "",
+		Disc: "UNDEFINED",
 	}
 	ts = insert(ts, idx, s)
-	c := rt.Course
-	rtt := ProcessRoundRawWithPinStamp(ts, c)
+	c := r.Course
+	rt := ProcessStamps(ts, c)
 
-	rt.Data = rtt
+	r.Data = rt
 }
 
-func (rt *RoundTidy) MovePoint(idx int, lat float64, lon float64) {
-	ts := rt.Data.getStamps()
+func (r *Round) MovePoint(idx int, lat float64, lon float64) {
+	ts := r.Data.getStamps()
 	ts[idx].Loc = Loc{lat, lon}
-	c := rt.Course
-	rtt := ProcessRoundRawWithPinStamp(ts, c)
+	c := r.Course
+	rt := ProcessStamps(ts, c)
 
-	rt.Data = rtt
+	r.Data = rt
 }
 
-func ProcessRoundRawWithPinStamp(ts Stamps, c Course) RoundTidyTable {
+func ProcessStamps(ts Stamps, c Course) RoundTable {
 	teeThresh := 10.0
 	pinThresh := 10.0
 	driveThresh := 20.0
 
-	var RTT RoundTidyTable
+	var RT RoundTable
 
 	h, t := inferHole(ts[0].Loc, c)
 
@@ -356,10 +191,10 @@ func ProcessRoundRawWithPinStamp(ts Stamps, c Course) RoundTidyTable {
 			t = t_n
 
 			// and assign previous pin
-			RTT[len(RTT)-1].PinID = p.ID
+			RT[len(RT)-1].PinID = p.ID
 		}
 
-		rtr := RoundTidyRow{
+		rr := RoundRow{
 			HoleID: h.ID,
 			TeeID:  t.ID,
 			PinID:  "",
@@ -368,29 +203,29 @@ func ProcessRoundRawWithPinStamp(ts Stamps, c Course) RoundTidyTable {
 			Disc:   s.Disc}
 
 		if i == len(ts)-1 {
-			rtr.PinID = p.ID
+			rr.PinID = p.ID
 		}
 
-		RTT = append(RTT, rtr)
+		RT = append(RT, rr)
 
 	}
 
 	// and let's go through backwards and assign all the pins
-	last_pin := RTT[len(RTT)-1].PinID
-	for i := len(RTT) - 1; i >= 0; i-- {
-		if RTT[i].PinID == "" {
-			RTT[i].PinID = last_pin
+	last_pin := RT[len(RT)-1].PinID
+	for i := len(RT) - 1; i >= 0; i-- {
+		if RT[i].PinID == "" {
+			RT[i].PinID = last_pin
 		} else {
-			last_pin = RTT[i].PinID
+			last_pin = RT[i].PinID
 		}
-		RTT[i].RowNum = i
+		RT[i].RowNum = i
 	}
 
-	return RTT
+	return RT
 }
 
-func (rt RoundTidy) WriteCSV() {
-	f, err := os.Create(rt.ID + ".csv")
+func (r Round) WriteCSV() {
+	f, err := os.Create(r.ID + ".csv")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -398,91 +233,127 @@ func (rt RoundTidy) WriteCSV() {
 
 	w := csv.NewWriter(f)
 	defer w.Flush()
-	w.Write([]string{"RoundID: " + rt.ID})
-	w.Write([]string{"CourseID: " + rt.CourseID})
-	w.Write([]string{"CourseName: " + rt.CourseName})
+	w.Write([]string{"RoundID: " + r.ID})
+	w.Write([]string{"CourseID: " + r.CourseID})
+	w.Write([]string{"CourseName: " + r.CourseName})
+	w.Write([]string{"Notes: " + r.Notes})
 	w.Write([]string{""})
 	w.Write([]string{"row", "hole", "tee", "pin", "lat", "lon", "disc"})
 
-	for _, r := range rt.Data {
+	for _, l := range r.Data {
 		w.Write([]string{
-			strconv.Itoa(r.RowNum),
-			r.HoleID,
-			r.TeeID,
-			r.PinID,
-			fmt.Sprintf("%f", r.Lat),
-			fmt.Sprintf("%f", r.Lon),
-			r.Disc,
+			strconv.Itoa(l.RowNum),
+			l.HoleID,
+			l.TeeID,
+			l.PinID,
+			fmt.Sprintf("%f", l.Lat),
+			fmt.Sprintf("%f", l.Lon),
+			l.Disc,
 		})
 	}
 }
 
-func (rt RoundTidy) WriteJSON() {
-	file, _ := json.MarshalIndent(rt, "", "	")
-	_ = ioutil.WriteFile(rt.ID+".json", file, 0644)
+func (r Round) WriteJSON() {
+	file, _ := json.MarshalIndent(r, "", "	")
+	_ = ioutil.WriteFile(r.ID+".json", file, 0644)
 }
 
-func (rt RoundTidy) Cleanup() {
+func (r Round) Cleanup() {
 
 	cur_hole := ""
-	for i, r := range rt.Data {
-		if r.HoleID != cur_hole {
-			h := rt.Course.GetHole(r.HoleID)
-			t := h.GetTee(r.TeeID)
-			rt.Data[i].Lat = t.Loc[0]
-			rt.Data[i].Lon = t.Loc[1]
-			cur_hole = r.HoleID
+	for i, l := range r.Data {
+		if l.HoleID != cur_hole {
+			h := r.Course.GetHole(l.HoleID)
+			t := h.GetTee(l.TeeID)
+			r.Data[i].Lat = t.Loc[0]
+			r.Data[i].Lon = t.Loc[1]
+			cur_hole = l.HoleID
 		}
 
-		if i == len(rt.Data)-1 || r.HoleID != rt.Data[i+1].HoleID {
-			rt.Data[i].Disc = "BASKET"
-			h := rt.Course.GetHole(r.HoleID)
-			p := h.GetPin(r.PinID)
-			rt.Data[i].Lat = p.Loc[0]
-			rt.Data[i].Lon = p.Loc[1]
+		if i == len(r.Data)-1 || l.HoleID != r.Data[i+1].HoleID {
+			r.Data[i].Disc = "BASKET"
+			h := r.Course.GetHole(l.HoleID)
+			p := h.GetPin(l.PinID)
+			r.Data[i].Lat = p.Loc[0]
+			r.Data[i].Lon = p.Loc[1]
 		}
 	}
 
 }
 
-func GetRoundTidy(fileID string) RoundTidy {
-	ts := ReadRoundRawCSV(fileID)
+func GetRound(ts Stamps, fileID string) Round {
 
 	course := inferCourse(ts[0].Loc)
 
 	rndID := fileID + "_-_" + course.ID
 
 	fmt.Println(rndID)
-	RTT := ProcessRoundRawWithPinStamp(ts, course)
+	RT := ProcessStamps(ts, course)
 
-	RT := RoundTidy{
+	R := Round{
 		ID:         rndID,
 		CourseID:   course.ID,
 		CourseName: course.Name,
-		Data:       RTT,
+		Data:       RT,
 		Course:     course,
 	}
 
-	return RT
+	return R
 }
 
-type HoleScoreSummary struct {
-	Hole   string  `json:"hole"`
-	Tee    string  `json:"tee"`
-	Pin    string  `json:"pin"`
-	Dist   float64 `json:"dist"`
-	Par    int     `json:"par"`
-	Score  int     `json:"score"`
-	Result int     `json:"res"`
-	Total  int     `json:"tot"`
+type discCSVRow struct {
+	Name    string
+	ID      string
+	Plastic string
+	Mass    float64
+	Image   string
 }
-type RoundScoreSummary []HoleScoreSummary
 
-func (rt RoundTidy) DrawSummary() {
+type discCSV []discCSVRow
 
-	rt.Course.DrawSummary()
+func GetDiscs() discCSV {
+	homedir, _ := os.UserHomeDir()
+	filename := filepath.Join(homedir, ".discgolf", "discs", "discs.csv")
+
+	f, err := os.Open(filename)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+
+	r := csv.NewReader(f)
+	r.Read() //burn header
+
+	var ts discCSV
+	for {
+		line, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		mass, _ := strconv.ParseFloat(line[3], 64)
+		ts = append(ts, discCSVRow{line[0], line[1], line[2], mass, line[4]})
+	}
+	return ts
+}
+
+func (rt Round) DrawSummary() {
 
 	var features []Feature
+
+	all_discs := GetDiscs()
+	used_discs := []Disc{{"UNDEFINED", "blank.png"}, {"BASKET", "basket.png"}}
+
+	for _, d := range all_discs {
+		used_discs = append(used_discs, Disc{
+			ID:    d.Name,
+			Image: d.Image,
+		})
+	}
+
 	c := rt.Course
 
 	var RSS RoundScoreSummary
@@ -574,8 +445,9 @@ func (rt RoundTidy) DrawSummary() {
 		f := Feature{
 			Type: "Feature",
 			Properties: Properties{
-				Thing: "stamp",
-				Name:  strconv.Itoa(r.RowNum),
+				Thing:    "stamp",
+				Name:     strconv.Itoa(r.RowNum),
+				DiscName: r.Disc,
 			},
 			Geometry: geom,
 		}
@@ -626,6 +498,7 @@ func (rt RoundTidy) DrawSummary() {
 
 	rgj := RoundGEOJSON{
 		Type:     "FeatureCollection",
+		Discs:    used_discs,
 		Features: features,
 		Table:    RSS,
 	}

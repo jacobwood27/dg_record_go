@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
-	"path/filepath"
 	"strconv"
 
 	"github.com/jacobwood27/go-dg-record/internal/rnd"
@@ -17,7 +16,7 @@ var templates embed.FS
 //  //go:embed ../../data/courses
 // var courses embed.FS
 
-var rt rnd.RoundTidy
+var rt rnd.Round
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFS(templates, "templates/edit_round.html"))
@@ -76,27 +75,45 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	rt.DrawSummary()
 
 	rt.WriteCSV()
-	rt.WriteJSON()
 
 	fmt.Println("Round saved.")
 	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
 
 }
 
+func snapHandler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println(r.URL)
+
+	rt.Cleanup()
+	rt.DrawSummary()
+
+	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
+
+}
+
 func main() {
 	// in := os.Args[1]
-	matches, _ := filepath.Glob("./*_raw.csv")
-	m := matches[0]
-	fID := m[:len(m)-8]
+	// matches, _ := filepath.Glob("./*_raw.csv")
+	// m := matches[0]
+	// fID := m[:len(m)-8]
 
-	rt = rnd.GetRoundTidy(fID)
+	ts_csv := "ts.csv"
+	rec_gpx := "rec.gpx"
+
+	ts, fID := rnd.GetRoundRaw(ts_csv, rec_gpx)
+
+	rt = rnd.GetRound(ts, fID)
 	rt.DrawSummary()
 
 	// // make mapbox representation of course
 	http.HandleFunc("/", homeHandler)
 
-	// Save as .json and .csv
+	// Save as .csv
 	http.HandleFunc("/save", saveHandler)
+
+	// Snap to tees+pins
+	http.HandleFunc("/snap", snapHandler)
 
 	// // handle moving points
 	http.HandleFunc("/movepoint", movepointHandler)

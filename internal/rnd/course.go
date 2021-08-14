@@ -13,6 +13,7 @@ type Properties struct {
 	DiscName string `json:"disc_name"`
 	Name     string `json:"name"`
 	Par      int    `json:"par"`
+	Result   int    `json:"res"`
 }
 
 type Geometry struct {

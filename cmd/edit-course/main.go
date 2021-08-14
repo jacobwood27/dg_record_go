@@ -232,4 +232,6 @@ func main() {
 	// serve up for local use
 	http.ListenAndServe(":8081", nil)
 
+	fmt.Println("Edit the course at 0.0.0.0:8081")
+
 }

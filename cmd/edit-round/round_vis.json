@@ -7,7 +7,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "1_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -23,7 +24,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "1_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -39,7 +41,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "1_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -55,7 +58,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "1_C",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -71,7 +75,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "2_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -87,7 +92,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "2_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -103,7 +109,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "2_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -119,7 +126,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "2_C",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -135,7 +143,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "3_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -151,7 +160,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "3_pro",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -167,7 +177,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "3_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -183,7 +194,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "3_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -199,7 +211,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "4_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -215,7 +228,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "4_pro",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -231,7 +245,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "4_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -247,7 +262,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "4_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -263,7 +279,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "5_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -279,7 +296,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "5_pro",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -295,7 +313,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "5_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -311,7 +330,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "6_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -327,7 +347,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "6_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -343,7 +364,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "7_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -359,7 +381,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "7_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -375,7 +398,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "8_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -391,7 +415,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "8_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -407,7 +432,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "9_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -423,7 +449,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "9_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -439,7 +466,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "10_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -455,7 +483,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "10_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -471,7 +500,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "11_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -487,7 +517,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "11_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -503,7 +534,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "11_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -519,7 +551,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "11_C",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -535,7 +568,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "11_D",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -551,7 +585,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "12_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -567,7 +602,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "12_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -583,7 +619,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "12_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -599,7 +636,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "13_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -615,7 +653,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "13_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -631,7 +670,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "13_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -647,7 +687,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "13_C",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -663,7 +704,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "14_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -679,7 +721,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "14_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -695,7 +738,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "14_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -711,7 +755,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "15_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -727,7 +772,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "15_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -743,7 +789,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "16_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -759,7 +806,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "16_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -775,7 +823,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "16_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -791,7 +840,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "17_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -807,7 +857,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "17_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -823,7 +874,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "17_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -839,7 +891,8 @@
 				"thing": "tee",
 				"disc_name": "",
 				"name": "18_reg",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -855,7 +908,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "18_A",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -871,7 +925,8 @@
 				"thing": "pin",
 				"disc_name": "",
 				"name": "18_B",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -887,13 +942,14 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "0",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.05859497786284,
-					33.07933364002395
+					-117.0585986555683,
+					33.07933312922124
 				]
 			}
 		},
@@ -903,7 +959,8 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "1",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -919,13 +976,14 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "2",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.057802,
-					33.079936
+					-117.05780006680942,
+					33.07994748732632
 				]
 			}
 		},
@@ -935,13 +993,14 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "3",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.05761818956942,
-					33.07967367878918
+					-117.05761816123476,
+					33.07967634156128
 				]
 			}
 		},
@@ -951,7 +1010,8 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "4",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -967,13 +1027,14 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "5",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.05785247731691,
-					33.07893268385608
+					-117.057367,
+					33.079217
 				]
 			}
 		},
@@ -983,13 +1044,14 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "6",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.05729023243214,
-					33.079345135072714
+					-117.057326,
+					33.079214
 				]
 			}
 		},
@@ -999,7 +1061,8 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "7",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1015,7 +1078,8 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "8",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1031,23 +1095,8 @@
 				"thing": "stamp",
 				"disc_name": "",
 				"name": "9",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.0574488546876,
-					33.08070091862737
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "10",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1062,8 +1111,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "11",
-				"par": 0
+				"name": "10",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1078,8 +1128,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "12",
-				"par": 0
+				"name": "11",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1094,8 +1145,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "13",
-				"par": 0
+				"name": "12",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1110,8 +1162,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "14",
-				"par": 0
+				"name": "13",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1126,8 +1179,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "15",
-				"par": 0
+				"name": "14",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1142,40 +1196,26 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
+				"name": "15",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061076,
+					33.080867
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
 				"name": "16",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06018054682104,
-					33.07912482615869
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "17",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06112613751841,
-					33.08095292102378
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "18",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1190,14 +1230,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "19",
-				"par": 0
+				"name": "17",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.0611294055524,
-					33.08140946540102
+					-117.06102,
+					33.08135
 				]
 			}
 		},
@@ -1206,24 +1247,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "20",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06087550504128,
-					33.081494696457725
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "21",
-				"par": 0
+				"name": "18",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1238,8 +1264,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "22",
-				"par": 0
+				"name": "19",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1254,104 +1281,60 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
+				"name": "20",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.061022,
+					33.082225
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "21",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.060771,
+					33.082893
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "22",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.060814,
+					33.08287
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
 				"name": "23",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06105795935608,
-					33.08210957030991
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "24",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06098495478217,
-					33.08232452205394
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "25",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06071085531542,
-					33.082951464362324
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "26",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06076531977843,
-					33.08287160351662
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "27",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06075570840258,
-					33.08289442090921
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "28",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06099965790868,
-					33.08346956854973
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "29",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1366,8 +1349,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "30",
-				"par": 0
+				"name": "24",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1382,14 +1366,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "31",
-				"par": 0
+				"name": "25",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06129711475047,
-					33.08413447057595
+					-117.061322,
+					33.084477
 				]
 			}
 		},
@@ -1398,40 +1383,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "32",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06142757163468,
-					33.0845583686593
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "33",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06176586684255,
-					33.083768370904366
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "34",
-				"par": 0
+				"name": "26",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1446,24 +1400,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "35",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06165952597651,
-					33.0836834735199
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "36",
-				"par": 0
+				"name": "27",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1478,8 +1417,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "37",
-				"par": 0
+				"name": "28",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1494,14 +1434,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "38",
-				"par": 0
+				"name": "29",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06134512417037,
-					33.08458558676307
+					-117.061331,
+					33.084588
 				]
 			}
 		},
@@ -1510,14 +1451,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "39",
-				"par": 0
+				"name": "30",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06135773872253,
-					33.084583665072316
+					-117.061345,
+					33.084588
 				]
 			}
 		},
@@ -1526,8 +1468,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "40",
-				"par": 0
+				"name": "31",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1542,14 +1485,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "41",
-				"par": 0
+				"name": "32",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06152426379052,
-					33.084792670789284
+					-117.061988,
+					33.084741
 				]
 			}
 		},
@@ -1558,24 +1502,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "42",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06204758560513,
-					33.084641023108645
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "43",
-				"par": 0
+				"name": "33",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1590,14 +1519,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "44",
-				"par": 0
+				"name": "34",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06228285067849,
-					33.08394665684493
+					-117.062322,
+					33.08395
 				]
 			}
 		},
@@ -1606,14 +1536,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "45",
-				"par": 0
+				"name": "35",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06225814262979,
-					33.08393322840642
+					-117.062269,
+					33.083751
 				]
 			}
 		},
@@ -1622,24 +1553,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "46",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06223367689093,
-					33.08367139000424
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "47",
-				"par": 0
+				"name": "36",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1654,14 +1570,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "48",
-				"par": 0
+				"name": "37",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.0618047274874,
-					33.08288479985826
+					-117.061413,
+					33.082478
 				]
 			}
 		},
@@ -1670,24 +1587,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "49",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06130672248693,
-					33.08254868864199
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "50",
-				"par": 0
+				"name": "38",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1702,24 +1604,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "51",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.0613066056906,
-					33.0814877164203
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "52",
-				"par": 0
+				"name": "39",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1734,8 +1621,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "53",
-				"par": 0
+				"name": "40",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1750,8 +1638,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "54",
-				"par": 0
+				"name": "41",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1766,24 +1655,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "55",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.0617435318153,
-					33.08108961471673
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "56",
-				"par": 0
+				"name": "42",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1798,14 +1672,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "57",
-				"par": 0
+				"name": "43",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06212070567776,
-					33.08117009036762
+					-117.062068,
+					33.08122
 				]
 			}
 		},
@@ -1814,8 +1689,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "58",
-				"par": 0
+				"name": "44",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1830,24 +1706,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "59",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06254316518502,
-					33.080497822279796
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "60",
-				"par": 0
+				"name": "45",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1862,8 +1723,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "61",
-				"par": 0
+				"name": "46",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1878,8 +1740,26 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "62",
-				"par": 0
+				"name": "47",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-117.062435,
+					33.080193
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "stamp",
+				"disc_name": "",
+				"name": "48",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1894,24 +1774,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "63",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06255279700886,
-					33.079900176954524
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "64",
-				"par": 0
+				"name": "49",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1926,8 +1791,9 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "65",
-				"par": 0
+				"name": "50",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
@@ -1942,30 +1808,15 @@
 			"properties": {
 				"thing": "stamp",
 				"disc_name": "",
-				"name": "66",
-				"par": 0
+				"name": "51",
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-117.06130942954007,
-					33.079517091777376
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "stamp",
-				"disc_name": "",
-				"name": "67",
-				"par": 0
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-117.06128928145458,
-					33.079534362660624
+					-117.05784224812618,
+					33.078939986957096
 				]
 			}
 		},
@@ -1975,14 +1826,15 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "1",
-				"par": 0
+				"par": 0,
+				"res": -1
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.05859497786284,
-						33.07933364002395
+						-117.0585986555683,
+						33.07933312922124
 					],
 					[
 						-117.057926,
@@ -1997,7 +1849,8 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "2",
-				"par": 0
+				"par": 0,
+				"res": -1
 			},
 			"geometry": {
 				"type": "LineString",
@@ -2007,8 +1860,8 @@
 						33.079929
 					],
 					[
-						-117.057802,
-						33.079936
+						-117.05780006680942,
+						33.07994748732632
 					]
 				]
 			}
@@ -2019,18 +1872,19 @@
 				"thing": "walk",
 				"disc_name": "",
 				"name": "3",
-				"par": 0
+				"par": 0,
+				"res": 0
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.057802,
-						33.079936
+						-117.05780006680942,
+						33.07994748732632
 					],
 					[
-						-117.05761818956942,
-						33.07967367878918
+						-117.05761816123476,
+						33.07967634156128
 					]
 				]
 			}
@@ -2041,14 +1895,15 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "4",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.05761818956942,
-						33.07967367878918
+						-117.05761816123476,
+						33.07967634156128
 					],
 					[
 						-117.057828,
@@ -2063,7 +1918,8 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "5",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
@@ -2073,8 +1929,8 @@
 						33.078944
 					],
 					[
-						-117.05785247731691,
-						33.07893268385608
+						-117.057367,
+						33.079217
 					]
 				]
 			}
@@ -2082,21 +1938,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "6",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.05785247731691,
-						33.07893268385608
+						-117.057367,
+						33.079217
 					],
 					[
-						-117.05729023243214,
-						33.079345135072714
+						-117.057326,
+						33.079214
 					]
 				]
 			}
@@ -2107,14 +1964,15 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "7",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.05729023243214,
-						33.079345135072714
+						-117.057326,
+						33.079214
 					],
 					[
 						-117.0571,
@@ -2129,7 +1987,8 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "8",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
@@ -2151,7 +2010,8 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "9",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
@@ -2161,8 +2021,8 @@
 						33.080701
 					],
 					[
-						-117.0574488546876,
-						33.08070091862737
+						-117.057724,
+						33.080474
 					]
 				]
 			}
@@ -2170,21 +2030,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "10",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.0574488546876,
-						33.08070091862737
-					],
-					[
 						-117.057724,
 						33.080474
+					],
+					[
+						-117.058337,
+						33.079645
 					]
 				]
 			}
@@ -2195,18 +2056,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "11",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.057724,
-						33.080474
-					],
-					[
 						-117.058337,
 						33.079645
+					],
+					[
+						-117.058868,
+						33.079439
 					]
 				]
 			}
@@ -2217,18 +2079,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "12",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.058337,
-						33.079645
-					],
-					[
 						-117.058868,
 						33.079439
+					],
+					[
+						-117.0588,
+						33.079428
 					]
 				]
 			}
@@ -2239,29 +2102,8 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "13",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.058868,
-						33.079439
-					],
-					[
-						-117.0588,
-						33.079428
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "walk",
-				"disc_name": "",
-				"name": "14",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
@@ -2273,6 +2115,29 @@
 					[
 						-117.059267,
 						33.079295
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "throw",
+				"disc_name": "",
+				"name": "14",
+				"par": 0,
+				"res": 45
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-117.059267,
+						33.079295
+					],
+					[
+						-117.060203,
+						33.07914
 					]
 				]
 			}
@@ -2283,18 +2148,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "15",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.059267,
-						33.079295
-					],
-					[
 						-117.060203,
 						33.07914
+					],
+					[
+						-117.061076,
+						33.080867
 					]
 				]
 			}
@@ -2305,18 +2171,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "16",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.060203,
-						33.07914
+						-117.061076,
+						33.080867
 					],
 					[
-						-117.06018054682104,
-						33.07912482615869
+						-117.061128,
+						33.081365
 					]
 				]
 			}
@@ -2324,21 +2191,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "17",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06018054682104,
-						33.07912482615869
+						-117.061128,
+						33.081365
 					],
 					[
-						-117.06112613751841,
-						33.08095292102378
+						-117.06102,
+						33.08135
 					]
 				]
 			}
@@ -2349,18 +2217,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "18",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06112613751841,
-						33.08095292102378
+						-117.06102,
+						33.08135
 					],
 					[
-						-117.061128,
-						33.081365
+						-117.061029,
+						33.081821
 					]
 				]
 			}
@@ -2371,18 +2240,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "19",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061128,
-						33.081365
+						-117.061029,
+						33.081821
 					],
 					[
-						-117.0611294055524,
-						33.08140946540102
+						-117.061091,
+						33.081995
 					]
 				]
 			}
@@ -2390,21 +2260,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "20",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.0611294055524,
-						33.08140946540102
+						-117.061091,
+						33.081995
 					],
 					[
-						-117.06087550504128,
-						33.081494696457725
+						-117.061022,
+						33.082225
 					]
 				]
 			}
@@ -2415,18 +2286,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "21",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06087550504128,
-						33.081494696457725
+						-117.061022,
+						33.082225
 					],
 					[
-						-117.061029,
-						33.081821
+						-117.060771,
+						33.082893
 					]
 				]
 			}
@@ -2437,18 +2309,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "22",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061029,
-						33.081821
+						-117.060771,
+						33.082893
 					],
 					[
-						-117.061091,
-						33.081995
+						-117.060814,
+						33.08287
 					]
 				]
 			}
@@ -2459,18 +2332,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "23",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061091,
-						33.081995
+						-117.060814,
+						33.08287
 					],
 					[
-						-117.06105795935608,
-						33.08210957030991
+						-117.061269,
+						33.083915
 					]
 				]
 			}
@@ -2478,21 +2352,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "24",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06105795935608,
-						33.08210957030991
+						-117.061269,
+						33.083915
 					],
 					[
-						-117.06098495478217,
-						33.08232452205394
+						-117.061296,
+						33.084116
 					]
 				]
 			}
@@ -2503,18 +2378,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "25",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06098495478217,
-						33.08232452205394
+						-117.061296,
+						33.084116
 					],
 					[
-						-117.06071085531542,
-						33.082951464362324
+						-117.061322,
+						33.084477
 					]
 				]
 			}
@@ -2525,18 +2401,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "26",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06071085531542,
-						33.082951464362324
+						-117.061322,
+						33.084477
 					],
 					[
-						-117.06076531977843,
-						33.08287160351662
+						-117.061615,
+						33.083658
 					]
 				]
 			}
@@ -2547,18 +2424,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "27",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06076531977843,
-						33.08287160351662
+						-117.061615,
+						33.083658
 					],
 					[
-						-117.06075570840258,
-						33.08289442090921
+						-117.061852,
+						33.083423
 					]
 				]
 			}
@@ -2566,21 +2444,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "28",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06075570840258,
-						33.08289442090921
+						-117.061852,
+						33.083423
 					],
 					[
-						-117.06099965790868,
-						33.08346956854973
+						-117.061582,
+						33.083755
 					]
 				]
 			}
@@ -2591,18 +2470,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "29",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06099965790868,
-						33.08346956854973
+						-117.061582,
+						33.083755
 					],
 					[
-						-117.061269,
-						33.083915
+						-117.061331,
+						33.084588
 					]
 				]
 			}
@@ -2613,18 +2493,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "30",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061269,
-						33.083915
+						-117.061331,
+						33.084588
 					],
 					[
-						-117.061296,
-						33.084116
+						-117.061345,
+						33.084588
 					]
 				]
 			}
@@ -2635,18 +2516,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "31",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061296,
-						33.084116
+						-117.061345,
+						33.084588
 					],
 					[
-						-117.06129711475047,
-						33.08413447057595
+						-117.061516,
+						33.084843
 					]
 				]
 			}
@@ -2654,21 +2536,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "32",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06129711475047,
-						33.08413447057595
+						-117.061516,
+						33.084843
 					],
 					[
-						-117.06142757163468,
-						33.0845583686593
+						-117.061988,
+						33.084741
 					]
 				]
 			}
@@ -2679,18 +2562,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "33",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06142757163468,
-						33.0845583686593
+						-117.061988,
+						33.084741
 					],
 					[
-						-117.06176586684255,
-						33.083768370904366
+						-117.062365,
+						33.083882
 					]
 				]
 			}
@@ -2701,18 +2585,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "34",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06176586684255,
-						33.083768370904366
+						-117.062365,
+						33.083882
 					],
 					[
-						-117.061615,
-						33.083658
+						-117.062322,
+						33.08395
 					]
 				]
 			}
@@ -2723,18 +2608,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "35",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061615,
-						33.083658
+						-117.062322,
+						33.08395
 					],
 					[
-						-117.06165952597651,
-						33.0836834735199
+						-117.062269,
+						33.083751
 					]
 				]
 			}
@@ -2742,21 +2628,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "36",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06165952597651,
-						33.0836834735199
+						-117.062269,
+						33.083751
 					],
 					[
-						-117.061852,
-						33.083423
+						-117.061834,
+						33.082914
 					]
 				]
 			}
@@ -2767,18 +2654,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "37",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061852,
-						33.083423
+						-117.061834,
+						33.082914
 					],
 					[
-						-117.061582,
-						33.083755
+						-117.061413,
+						33.082478
 					]
 				]
 			}
@@ -2789,18 +2677,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "38",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061582,
-						33.083755
+						-117.061413,
+						33.082478
 					],
 					[
-						-117.06134512417037,
-						33.08458558676307
+						-117.061402,
+						33.081368
 					]
 				]
 			}
@@ -2811,18 +2700,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "39",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06134512417037,
-						33.08458558676307
+						-117.061402,
+						33.081368
 					],
 					[
-						-117.06135773872253,
-						33.084583665072316
+						-117.061293,
+						33.081506
 					]
 				]
 			}
@@ -2833,18 +2723,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "40",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06135773872253,
-						33.084583665072316
+						-117.061293,
+						33.081506
 					],
 					[
-						-117.061516,
-						33.084843
+						-117.061594,
+						33.081791
 					]
 				]
 			}
@@ -2855,18 +2746,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "41",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061516,
-						33.084843
+						-117.061594,
+						33.081791
 					],
 					[
-						-117.06152426379052,
-						33.084792670789284
+						-117.061697,
+						33.081056
 					]
 				]
 			}
@@ -2874,21 +2766,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "42",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06152426379052,
-						33.084792670789284
+						-117.061697,
+						33.081056
 					],
 					[
-						-117.06204758560513,
-						33.084641023108645
+						-117.061754,
+						33.081095
 					]
 				]
 			}
@@ -2899,18 +2792,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "43",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06204758560513,
-						33.084641023108645
+						-117.061754,
+						33.081095
 					],
 					[
-						-117.062365,
-						33.083882
+						-117.062068,
+						33.08122
 					]
 				]
 			}
@@ -2921,18 +2815,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "44",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.062365,
-						33.083882
+						-117.062068,
+						33.08122
 					],
 					[
-						-117.06228285067849,
-						33.08394665684493
+						-117.062625,
+						33.080485
 					]
 				]
 			}
@@ -2943,18 +2838,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "45",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06228285067849,
-						33.08394665684493
+						-117.062625,
+						33.080485
 					],
 					[
-						-117.06225814262979,
-						33.08393322840642
+						-117.062528,
+						33.080499
 					]
 				]
 			}
@@ -2962,21 +2858,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "46",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06225814262979,
-						33.08393322840642
+						-117.062528,
+						33.080499
 					],
 					[
-						-117.06223367689093,
-						33.08367139000424
+						-117.062256,
+						33.08054
 					]
 				]
 			}
@@ -2987,18 +2884,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "47",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06223367689093,
-						33.08367139000424
+						-117.062256,
+						33.08054
 					],
 					[
-						-117.061834,
-						33.082914
+						-117.062435,
+						33.080193
 					]
 				]
 			}
@@ -3009,18 +2907,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "48",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.061834,
-						33.082914
+						-117.062435,
+						33.080193
 					],
 					[
-						-117.0618047274874,
-						33.08288479985826
+						-117.062578,
+						33.079873
 					]
 				]
 			}
@@ -3028,21 +2927,22 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"thing": "walk",
+				"thing": "throw",
 				"disc_name": "",
 				"name": "49",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.0618047274874,
-						33.08288479985826
+						-117.062578,
+						33.079873
 					],
 					[
-						-117.06130672248693,
-						33.08254868864199
+						-117.062488,
+						33.079565
 					]
 				]
 			}
@@ -3053,18 +2953,19 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "50",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
-						-117.06130672248693,
-						33.08254868864199
+						-117.062488,
+						33.079565
 					],
 					[
-						-117.061402,
-						33.081368
+						-117.061433,
+						33.079341
 					]
 				]
 			}
@@ -3075,337 +2976,8 @@
 				"thing": "throw",
 				"disc_name": "",
 				"name": "51",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.061402,
-						33.081368
-					],
-					[
-						-117.0613066056906,
-						33.0814877164203
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "52",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.0613066056906,
-						33.0814877164203
-					],
-					[
-						-117.061293,
-						33.081506
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "walk",
-				"disc_name": "",
-				"name": "53",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.061293,
-						33.081506
-					],
-					[
-						-117.061594,
-						33.081791
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "54",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.061594,
-						33.081791
-					],
-					[
-						-117.061697,
-						33.081056
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "55",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.061697,
-						33.081056
-					],
-					[
-						-117.0617435318153,
-						33.08108961471673
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "56",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.0617435318153,
-						33.08108961471673
-					],
-					[
-						-117.061754,
-						33.081095
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "walk",
-				"disc_name": "",
-				"name": "57",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.061754,
-						33.081095
-					],
-					[
-						-117.06212070567776,
-						33.08117009036762
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "58",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.06212070567776,
-						33.08117009036762
-					],
-					[
-						-117.062625,
-						33.080485
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "59",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.062625,
-						33.080485
-					],
-					[
-						-117.06254316518502,
-						33.080497822279796
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "60",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.06254316518502,
-						33.080497822279796
-					],
-					[
-						-117.062528,
-						33.080499
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "walk",
-				"disc_name": "",
-				"name": "61",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.062528,
-						33.080499
-					],
-					[
-						-117.062256,
-						33.08054
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "62",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.062256,
-						33.08054
-					],
-					[
-						-117.062578,
-						33.079873
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "63",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.062578,
-						33.079873
-					],
-					[
-						-117.06255279700886,
-						33.079900176954524
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "walk",
-				"disc_name": "",
-				"name": "64",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.06255279700886,
-						33.079900176954524
-					],
-					[
-						-117.062488,
-						33.079565
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "65",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.062488,
-						33.079565
-					],
-					[
-						-117.061433,
-						33.079341
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "66",
-				"par": 0
+				"par": 0,
+				"res": 45
 			},
 			"geometry": {
 				"type": "LineString",
@@ -3415,30 +2987,8 @@
 						33.079341
 					],
 					[
-						-117.06130942954007,
-						33.079517091777376
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"thing": "throw",
-				"disc_name": "",
-				"name": "67",
-				"par": 0
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[
-						-117.06130942954007,
-						33.079517091777376
-					],
-					[
-						-117.06128928145458,
-						33.079534362660624
+						-117.05784224812618,
+						33.078939986957096
 					]
 				]
 			}
@@ -3461,169 +3011,9 @@
 			"pin": "A",
 			"dist": 278,
 			"par": 3,
-			"score": 2,
-			"res": -1,
-			"tot": -2
-		},
-		{
-			"hole": "3",
-			"tee": "reg",
-			"pin": "B",
-			"dist": 505,
-			"par": 4,
-			"score": 3,
-			"res": -1,
-			"tot": -3
-		},
-		{
-			"hole": "4",
-			"tee": "reg",
-			"pin": "B",
-			"dist": 467,
-			"par": 4,
-			"score": 3,
-			"res": -1,
-			"tot": -4
-		},
-		{
-			"hole": "5",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 273,
-			"par": 3,
-			"score": 2,
-			"res": -1,
-			"tot": -5
-		},
-		{
-			"hole": "6",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 165,
-			"par": 3,
-			"score": 2,
-			"res": -1,
-			"tot": -6
-		},
-		{
-			"hole": "7",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 234,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "8",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 222,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "9",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 259,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "10",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 324,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "11",
-			"tee": "reg",
-			"pin": "D",
-			"dist": 509,
-			"par": 4,
-			"score": 5,
-			"res": 1,
-			"tot": -5
-		},
-		{
-			"hole": "12",
-			"tee": "reg",
-			"pin": "B",
-			"dist": 281,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -5
-		},
-		{
-			"hole": "13",
-			"tee": "reg",
-			"pin": "B",
-			"dist": 314,
-			"par": 3,
-			"score": 2,
-			"res": -1,
-			"tot": -6
-		},
-		{
-			"hole": "14",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 386,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "15",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 272,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "16",
-			"tee": "reg",
-			"pin": "A",
-			"dist": 274,
-			"par": 3,
-			"score": 3,
-			"res": 0,
-			"tot": -6
-		},
-		{
-			"hole": "17",
-			"tee": "reg",
-			"pin": "B",
-			"dist": 234,
-			"par": 3,
-			"score": 2,
-			"res": -1,
-			"tot": -7
-		},
-		{
-			"hole": "18",
-			"tee": "reg",
-			"pin": "B",
-			"dist": 355,
-			"par": 3,
-			"score": 2,
-			"res": -1,
-			"tot": -8
+			"score": 48,
+			"res": 45,
+			"tot": 44
 		}
 	]
 }

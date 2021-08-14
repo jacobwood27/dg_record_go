@@ -14,11 +14,10 @@ import (
 //go:embed templates/*
 var templates embed.FS
 
-// var round rnd.Round
-// var ts rnd.Stamps
-var rt rnd.RoundTidy
+//  //go:embed ../../data/courses
+// var courses embed.FS
 
-// var crs rnd.Course
+var rt rnd.RoundTidy
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFS(templates, "templates/edit_round.html"))
@@ -69,43 +68,20 @@ func movepointHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// func movepointHandler(w http.ResponseWriter, r *http.Request) {
+func saveHandler(w http.ResponseWriter, r *http.Request) {
 
-// 	fmt.Println(r.URL)
+	fmt.Println(r.URL)
 
-// 	name_s := r.URL.Query()["name"]
-// 	name := name_s[0]
-// 	lat_s := r.URL.Query()["lat"]
-// 	lat, _ := strconv.ParseFloat(lat_s[0], 64)
-// 	lon_s := r.URL.Query()["lon"]
-// 	lon, _ := strconv.ParseFloat(lon_s[0], 64)
+	rt.Cleanup()
+	rt.DrawSummary()
 
-// 	for _, h := range crs.Holes {
-// 		for _, t := range h.Tees {
-// 			if h.ID+"_"+t.ID == name {
-// 				t.Loc[0] = lat
-// 				t.Loc[1] = lon
-// 				crs.DrawSummary()
-// 				return
-// 			}
-// 		}
-// 	}
+	rt.WriteCSV()
+	rt.WriteJSON()
 
-// 	for _, h := range crs.Holes {
-// 		for _, p := range h.Pins {
-// 			if h.ID+"_"+p.ID == name {
-// 				p.Loc[0] = lat
-// 				p.Loc[1] = lon
+	fmt.Println("Round saved.")
+	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
 
-// 				crs.DrawSummary()
-// 				return
-// 			}
-// 		}
-// 	}
-
-// 	fmt.Println("Shouldn't be here")
-
-// }
+}
 
 func main() {
 	// in := os.Args[1]
@@ -116,13 +92,11 @@ func main() {
 	rt = rnd.GetRoundTidy(fID)
 	rt.DrawSummary()
 
-	// crs = rnd.ParseCourseJSON(in)
-	// crs.DrawSummary()
-
-	// round.MakeRoundVis()
-
 	// // make mapbox representation of course
 	http.HandleFunc("/", homeHandler)
+
+	// Save as .json and .csv
+	http.HandleFunc("/save", saveHandler)
 
 	// // handle moving points
 	http.HandleFunc("/movepoint", movepointHandler)
@@ -136,6 +110,10 @@ func main() {
 	// // serve local files as if they were in /data
 	http.Handle("/data/", http.StripPrefix("/data/", http.FileServer(http.Dir("."))))
 
+	// // serve local files as if they were in /coursedata
+	// http.Handle("/coursedata/", http.StripPrefix("/coursedata/", http.FileServer(http.FS(courses))))
+
 	// // serve up for local use
-	http.ListenAndServe(":8081", nil)
+	fmt.Println("Edit the round at 0.0.0.0:8082")
+	http.ListenAndServe(":8082", nil)
 }

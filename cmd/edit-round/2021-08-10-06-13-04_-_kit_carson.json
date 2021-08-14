@@ -2,550 +2,422 @@
 	"roundID": "2021-08-10-06-13-04_-_kit_carson",
 	"courseID": "kit_carson",
 	"courseName": "Kit Carson",
-	"holes": [
+	"roundData": [
 		{
 			"hole": "1",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.07933312922124,
-						-117.0585986555683
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.079929,
-						-117.057926
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079936,
-						-117.057802
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.07994748732632,
-						-117.05780006680942
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.07933312922124,
+			"lon": -117.0585986555683,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "1",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.079929,
+			"lon": -117.057926,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "1",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.07994748732632,
+			"lon": -117.05780006680942,
+			"disc": "BASKET"
 		},
 		{
 			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.07967634156128,
-						-117.05761816123476
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.078944,
-						-117.057828
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079217,
-						-117.057367
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.079214,
-						-117.057326
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.080416,
-						-117.0571
-					],
-					"disc": "BUZZZY-BOY"
-				},
-				{
-					"loc": [
-						33.080701,
-						-117.057536
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.078939986957096,
-						-117.05784224812618
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.07967634156128,
+			"lon": -117.05761816123476,
+			"disc": "DESTROYAH"
 		},
 		{
-			"hole": "4",
-			"tee": "reg",
-			"pin": "B",
-			"par": 4,
-			"stamps": [
-				{
-					"loc": [
-						33.08041861915078,
-						-117.05776545973936
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.079645,
-						-117.058337
-					],
-					"disc": "BUZZZY-BOY"
-				},
-				{
-					"loc": [
-						33.079439,
-						-117.058868
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079428,
-						-117.0588
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079462,
-						-117.05878
-					],
-					"disc": "BASKET"
-				}
-			]
-		},
-		{
-			"hole": "5",
+			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.07930465948152,
-						-117.05931619896387
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.07914,
-						-117.060203
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.080867,
-						-117.061076
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.081365,
-						-117.061128
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.08135,
-						-117.06102
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.081821,
-						-117.061029
-					],
-					"disc": "BUZZZY-BOY"
-				},
-				{
-					"loc": [
-						33.081995,
-						-117.061091
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.082225,
-						-117.061022
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.082893,
-						-117.060771
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.08287,
-						-117.060814
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.083915,
-						-117.061269
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.084116,
-						-117.061296
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.084477,
-						-117.061322
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.083658,
-						-117.061615
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.0791398447235,
-						-117.06018525868609
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.078944,
+			"lon": -117.057828,
+			"disc": "JUDGEY-JOY"
 		},
 		{
-			"hole": "11",
+			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 4,
-			"stamps": [
-				{
-					"loc": [
-						33.08342946806623,
-						-117.06187031312585
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.083755,
-						-117.061582
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.084507334393805,
-						-117.06166555036445
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.079217,
+			"lon": -117.057367,
+			"disc": "BIG-PINK"
 		},
 		{
-			"hole": "10",
+			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.084562,
-						-117.061425
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.083696,
-						-117.061661
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.079214,
+			"lon": -117.057326,
+			"disc": "BIG-PINK"
 		},
 		{
-			"hole": "10",
+			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.084562,
-						-117.061425
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.084843,
-						-117.061516
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.084741,
-						-117.061988
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.083882,
-						-117.062365
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.08395,
-						-117.062322
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.083696,
-						-117.061661
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.080416,
+			"lon": -117.0571,
+			"disc": "BUZZZY-BOY"
 		},
 		{
-			"hole": "13",
-			"tee": "reg",
-			"pin": "C",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.083667,
-						-117.062232
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.082914,
-						-117.061834
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.082478,
-						-117.061413
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.081368,
-						-117.061402
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.081506,
-						-117.061293
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.082548,
-						-117.062077
-					],
-					"disc": "BASKET"
-				}
-			]
-		},
-		{
-			"hole": "15",
+			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.081755,
-						-117.061564
-					],
-					"disc": "DESTROYAH"
-				},
-				{
-					"loc": [
-						33.081056,
-						-117.061697
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.081095,
-						-117.061754
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.081031,
-						-117.061776
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.080701,
+			"lon": -117.057536,
+			"disc": "JUDGEY-JOY"
 		},
 		{
-			"hole": "16",
+			"hole": "2",
 			"tee": "reg",
 			"pin": "A",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.081177,
-						-117.062125
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.080485,
-						-117.062625
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.080499,
-						-117.062528
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.080501,
-						-117.062514
-					],
-					"disc": "BASKET"
-				}
-			]
+			"lat": 33.080474,
+			"lon": -117.057724,
+			"disc": "BIG-PINK"
 		},
 		{
-			"hole": "17",
+			"hole": "2",
 			"tee": "reg",
-			"pin": "B",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.080489,
-						-117.062235
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.080193,
-						-117.062435
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079873,
-						-117.062578
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079912,
-						-117.06257
-					],
-					"disc": "BASKET"
-				}
-			]
+			"pin": "A",
+			"lat": 33.079645,
+			"lon": -117.058337,
+			"disc": "BUZZZY-BOY"
 		},
 		{
-			"hole": "18",
+			"hole": "2",
 			"tee": "reg",
-			"pin": "B",
-			"par": 3,
-			"stamps": [
-				{
-					"loc": [
-						33.079649,
-						-117.06245
-					],
-					"disc": "BIG-PINK"
-				},
-				{
-					"loc": [
-						33.079341,
-						-117.061433
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079527,
-						-117.061276
-					],
-					"disc": "JUDGEY-JOY"
-				},
-				{
-					"loc": [
-						33.079534,
-						-117.061299
-					],
-					"disc": "BASKET"
-				}
-			]
+			"pin": "A",
+			"lat": 33.079439,
+			"lon": -117.058868,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.079428,
+			"lon": -117.0588,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.079295,
+			"lon": -117.059267,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.07914,
+			"lon": -117.060203,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.080867,
+			"lon": -117.061076,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081365,
+			"lon": -117.061128,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.08135,
+			"lon": -117.06102,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081821,
+			"lon": -117.061029,
+			"disc": "BUZZZY-BOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081995,
+			"lon": -117.061091,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.082225,
+			"lon": -117.061022,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.082893,
+			"lon": -117.060771,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.08287,
+			"lon": -117.060814,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.083915,
+			"lon": -117.061269,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.084116,
+			"lon": -117.061296,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.084477,
+			"lon": -117.061322,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.083658,
+			"lon": -117.061615,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.083423,
+			"lon": -117.061852,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.083755,
+			"lon": -117.061582,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.084588,
+			"lon": -117.061331,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.084588,
+			"lon": -117.061345,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.084843,
+			"lon": -117.061516,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.084741,
+			"lon": -117.061988,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.083882,
+			"lon": -117.062365,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.08395,
+			"lon": -117.062322,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.083751,
+			"lon": -117.062269,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.082914,
+			"lon": -117.061834,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.082478,
+			"lon": -117.061413,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081368,
+			"lon": -117.061402,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081506,
+			"lon": -117.061293,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081791,
+			"lon": -117.061594,
+			"disc": "DESTROYAH"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081056,
+			"lon": -117.061697,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.081095,
+			"lon": -117.061754,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.08122,
+			"lon": -117.062068,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.080485,
+			"lon": -117.062625,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.080499,
+			"lon": -117.062528,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.08054,
+			"lon": -117.062256,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.080193,
+			"lon": -117.062435,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.079873,
+			"lon": -117.062578,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.079565,
+			"lon": -117.062488,
+			"disc": "BIG-PINK"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.079341,
+			"lon": -117.061433,
+			"disc": "JUDGEY-JOY"
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "A",
+			"lat": 33.078939986957096,
+			"lon": -117.05784224812618,
+			"disc": "BASKET"
 		}
 	]
 }

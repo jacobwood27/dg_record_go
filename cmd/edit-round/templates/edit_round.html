@@ -102,7 +102,7 @@
         // Define Constants and Global Things
         var accessToken = 'pk.eyJ1Ijoiandvb2QyNyIsImEiOiJja3Jtajh3aXYxcXRsMnFwZWc0bnJxbDVkIn0.rcjWqatkRc5dLOH0G06z9Q';
         var imagesPath = 'https://raw.githubusercontent.com/jacobwood27/dg_stats/main/discs/images/';
-        
+
         mapboxgl.accessToken = accessToken;
         var map = new mapboxgl.Map({
             container: 'map',
@@ -114,7 +114,8 @@
         var currentPointName = "";
         var currentPoint;
         var latestData;
-        
+        var bounds = new mapboxgl.LngLatBounds();
+
 
         // Define Functions that can live outside the map
         function loadTableData(items) {
@@ -299,25 +300,25 @@
                 Promise.all(
                     latestData.discs.map(img => new Promise((resolve, reject) => {
                         map.loadImage(imagesPath + img.image, function (error, res) {
-                        map.addImage(img.id, res)
-                        resolve();
+                            map.addImage(img.id, res)
+                            resolve();
                         })
                     }))
-                    )
+                )
                     .then(
                         map.addLayer({
-                        'id': 'stamps',
-                        'type': 'symbol',
-                        'source': 'round_json',
-                        'layout': {
-                            'icon-image': ['get', 'disc_name'],
-                            'icon-size': 0.15,
-                            // 'text-allow-overlap': true,
-                            // 'text-ignore-placement': true,
-                            'icon-allow-overlap': true,
-                            'icon-ignore-placement': true
-                        },
-                        'filter': ['==', 'thing', 'stamp']
+                            'id': 'stamps',
+                            'type': 'symbol',
+                            'source': 'round_json',
+                            'layout': {
+                                'icon-image': ['get', 'disc_name'],
+                                'icon-size': 0.15,
+                                // 'text-allow-overlap': true,
+                                // 'text-ignore-placement': true,
+                                'icon-allow-overlap': true,
+                                'icon-ignore-placement': true
+                            },
+                            'filter': ['==', 'thing', 'stamp']
                         })
                     );
 
@@ -376,6 +377,11 @@
                     }
                 });
 
+
+                latestData.features.forEach(function (feature) {
+                    bounds.extend(feature.geometry.coordinates);
+                });
+                map.fitBounds(bounds);
 
             }
             );

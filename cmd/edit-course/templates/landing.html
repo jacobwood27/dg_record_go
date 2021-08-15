@@ -99,6 +99,7 @@
             zoom: 16
         });
         const canvas = map.getCanvasContainer();
+        var bounds = new mapboxgl.LngLatBounds();
 
         function updatePar(e,i) {
 
@@ -392,6 +393,11 @@
                         .addTo(map);
 
                     document.getElementById('newPOI').addEventListener('submit', submitNewPOI);
+
+                    data.features.forEach(function (feature) {
+                    bounds.extend(feature.geometry.coordinates);
+                    });
+                    map.fitBounds(bounds);
 
                 });
 

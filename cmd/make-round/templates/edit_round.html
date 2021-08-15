@@ -114,6 +114,7 @@
         var currentPointName = "";
         var currentPoint;
         var latestData;
+        var bounds = new mapboxgl.LngLatBounds();
         
 
         // Define Functions that can live outside the map
@@ -375,6 +376,11 @@
                         map.once('mouseup', onReleaseRound);
                     }
                 });
+
+                latestData.features.forEach(function (feature) {
+                    bounds.extend(feature.geometry.coordinates);
+                });
+                map.fitBounds(bounds);
 
 
             }

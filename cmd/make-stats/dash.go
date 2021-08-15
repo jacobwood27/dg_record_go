@@ -14,9 +14,9 @@ import (
 	"github.com/jacobwood27/go-dg-record/internal/rnd"
 )
 
-type ScoreDataset struct {
+type LineDataset struct {
 	Label                string `json:"label"`
-	Data                 []int `json:"data"`
+	Data                 []int  `json:"data"`
 	BackgroundColor      string `json:"backgroundColor"`
 	BorderColor          string `json:"borderColor"`
 	PointRadius          int    `json:"pointRadius"`
@@ -28,9 +28,9 @@ type ScoreDataset struct {
 	Fill                 bool   `json:"fill"`
 }
 
-type Score struct {
-	Labels   []string       `json:"labels"`
-	Datasets []ScoreDataset `json:"datasets"`
+type LinePlot struct {
+	Labels   []string      `json:"labels"`
+	Datasets []LineDataset `json:"datasets"`
 }
 
 type Disc struct {
@@ -50,9 +50,10 @@ type DashRound struct {
 }
 
 type Dash struct {
-	Scores Score       `json:"scores"`
+	Scores LinePlot    `json:"scores"`
 	Discs  []Disc      `json:"discs"`
 	Rounds []DashRound `json:"rounds"`
+	Putts  LinePlot    `json:"putts"`
 }
 
 type myDisc struct {
@@ -157,18 +158,18 @@ func getDiscs() []Disc {
 	return D
 }
 
-func getScores() Score {
+func getScores() LinePlot {
 	AR := ParseAllRoundsCSV()
 
 	var L []string
 	var ds []int
-	var DS []ScoreDataset
+	var DS []LineDataset
 	for _, r := range AR {
 		L = append(L, r.Date)
 		ds = append(ds, r.Score)
 	}
 
-	DS = append(DS, ScoreDataset{
+	DS = append(DS, LineDataset{
 		Label:                "Recent Scores",
 		Data:                 ds,
 		BackgroundColor:      "rgba(60,141,188,0.9)",
@@ -182,7 +183,141 @@ func getScores() Score {
 		Fill:                 false,
 	})
 
-	return Score{
+	return LinePlot{
+		Labels:   L,
+		Datasets: DS,
+	}
+
+}
+
+func getPutts() LinePlot {
+	AT := ParseAllThrowsCSV()
+
+	var L []string
+	var ds_10_tries []int
+	var ds_10_makes []int
+	var ds_20_tries []int
+	var ds_20_makes []int
+	var ds_33_tries []int
+	var ds_33_makes []int
+	var ds_66_tries []int
+	var ds_66_makes []int
+
+	cur_round := ""
+	i := -1
+	for _, r := range AT {
+		if cur_round != r.Round {
+			cur_round = r.Round
+			L = append(L, r.Date)
+			ds_10_tries = append(ds_10_tries, 0)
+			ds_10_makes = append(ds_10_makes, 0)
+			ds_20_tries = append(ds_20_tries, 0)
+			ds_20_makes = append(ds_20_makes, 0)
+			ds_33_tries = append(ds_33_tries, 0)
+			ds_33_makes = append(ds_33_makes, 0)
+			ds_66_tries = append(ds_66_tries, 0)
+			ds_66_makes = append(ds_66_makes, 0)
+			i++
+		}
+
+		if r.DistPin < 10 {
+			ds_10_tries[i]++
+			if r.ResThrow == "MAKE" || r.ResThrow == "ACE" {
+				ds_10_makes[i]++
+			}
+		} else if r.DistPin < 20 {
+			ds_20_tries[i]++
+			if r.ResThrow == "MAKE" || r.ResThrow == "ACE" {
+				ds_20_makes[i]++
+			}
+		} else if r.DistPin < 33 {
+			ds_33_tries[i]++
+			if r.ResThrow == "MAKE" || r.ResThrow == "ACE" {
+				ds_33_makes[i]++
+			}
+		} else if r.DistPin < 66 {
+			ds_66_tries[i]++
+			if r.ResThrow == "MAKE" || r.ResThrow == "ACE" {
+				ds_66_makes[i]++
+			}
+		}
+	}
+
+	var DS []LineDataset
+
+	var ds_10 []int
+	for i, _ := range ds_10_tries {
+		ds_10 = append(ds_10, (100*ds_10_makes[i])/ds_10_tries[i])
+	}
+	DS = append(DS, LineDataset{
+		Label:                "0 - 10 ft",
+		Data:                 ds_10,
+		BackgroundColor:      "rgba(167, 36, 193, 1)",
+		BorderColor:          "rgba(167, 36, 193, 1)",
+		PointRadius:          5,
+		PointColor:           "#3b8bba",
+		PointStrokeColor:     "rgba(167, 36, 193, 1)",
+		PointHighlightFill:   "#fff",
+		PointHighlightStroke: "rgba(167, 36, 193, 1)",
+		ShowLine:             true,
+		Fill:                 false,
+	})
+
+	var ds_20 []int
+	for i, _ := range ds_20_makes {
+		ds_20 = append(ds_20, (100*ds_20_makes[i])/ds_20_tries[i])
+	}
+	DS = append(DS, LineDataset{
+		Label:                "10 - 20 ft",
+		Data:                 ds_20,
+		BackgroundColor:      "rgba(0, 188, 212, 1)",
+		BorderColor:          "rgba(0, 188, 212, 1)",
+		PointRadius:          5,
+		PointColor:           "#3b8bba",
+		PointStrokeColor:     "rgba(0, 188, 212, 1)",
+		PointHighlightFill:   "#fff",
+		PointHighlightStroke: "rgba(0, 188, 212, 1)",
+		ShowLine:             true,
+		Fill:                 false,
+	})
+
+	var ds_33 []int
+	for i, _ := range ds_33_makes {
+		ds_33 = append(ds_33, (100*ds_33_makes[i])/ds_33_tries[i])
+	}
+	DS = append(DS, LineDataset{
+		Label:                "20 - 33 ft",
+		Data:                 ds_33,
+		BackgroundColor:      "rgba(214, 220, 57, 1)",
+		BorderColor:          "rgba(214, 220, 57, 1)",
+		PointRadius:          5,
+		PointColor:           "#3b8bba",
+		PointStrokeColor:     "rgba(214, 220, 57, 1)",
+		PointHighlightFill:   "#fff",
+		PointHighlightStroke: "rgba(214, 220, 57, 1)",
+		ShowLine:             true,
+		Fill:                 false,
+	})
+
+	var ds_66 []int
+	for i, _ := range ds_66_makes {
+		ds_66 = append(ds_66, 100*(ds_66_makes[i])/ds_66_tries[i])
+	}
+	DS = append(DS, LineDataset{
+		Label:                "33 - 66 ft",
+		Data:                 ds_66,
+		BackgroundColor:      "rgba(255, 87, 0, 1)",
+		BorderColor:          "rgba(255, 87, 0, 1)",
+		PointRadius:          5,
+		PointColor:           "#3b8bba",
+		PointStrokeColor:     "rgba(255, 87, 0, 1)",
+		PointHighlightFill:   "#fff",
+		PointHighlightStroke: "rgba(255, 87, 0, 1)",
+		ShowLine:             true,
+		Fill:                 false,
+	})
+
+	return LinePlot{
 		Labels:   L,
 		Datasets: DS,
 	}
@@ -213,11 +348,13 @@ func MakeDash() {
 	scores := getScores()
 	discs := getDiscs()
 	rounds := getRounds()
+	putts := getPutts()
 
 	D := Dash{
 		Scores: scores,
 		Discs:  discs,
 		Rounds: rounds,
+		Putts:  putts,
 	}
 
 	file, _ := json.MarshalIndent(D, "", "	")

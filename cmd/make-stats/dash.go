@@ -147,7 +147,7 @@ func getDiscs() []Disc {
 				D = append(D, Disc{
 					ID:      d.MyID,
 					Image:   d.Image,
-					Mold:    ad.Mold,
+					Mold:    ad.Brand + " " + ad.Mold,
 					Plastic: d.Plastic,
 					Mass:    d.Mass,
 					Numbers: nums,

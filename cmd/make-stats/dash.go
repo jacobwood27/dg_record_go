@@ -15,8 +15,8 @@ import (
 )
 
 type ScoreDataset struct {
-	Label                string
-	Data                 []string
+	Label                string `json:"label"`
+	Data                 []int `json:"data"`
 	BackgroundColor      string `json:"backgroundColor"`
 	BorderColor          string `json:"borderColor"`
 	PointRadius          int    `json:"pointRadius"`
@@ -161,11 +161,11 @@ func getScores() Score {
 	AR := ParseAllRoundsCSV()
 
 	var L []string
-	var ds []string
+	var ds []int
 	var DS []ScoreDataset
 	for _, r := range AR {
 		L = append(L, r.Date)
-		ds = append(ds, strconv.Itoa(r.Score))
+		ds = append(ds, r.Score)
 	}
 
 	DS = append(DS, ScoreDataset{

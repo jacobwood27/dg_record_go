@@ -54,6 +54,7 @@ type Dash struct {
 	Discs  []Disc      `json:"discs"`
 	Rounds []DashRound `json:"rounds"`
 	Putts  LinePlot    `json:"putts"`
+	Drives LinePlot    `json:"drives"`
 }
 
 type myDisc struct {
@@ -306,13 +307,56 @@ func getPutts() LinePlot {
 	DS = append(DS, LineDataset{
 		Label:                "33 - 66 ft",
 		Data:                 ds_66,
-		BackgroundColor:      "rgba(255, 87, 0, 1)",
-		BorderColor:          "rgba(255, 87, 0, 1)",
+		BackgroundColor:      "rgba(60,141,188,0.9)",
+		BorderColor:          "rgba(60,141,188,0.8)",
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
-		PointStrokeColor:     "rgba(255, 87, 0, 1)",
+		PointStrokeColor:     "rgba(60,141,188,1)",
 		PointHighlightFill:   "#fff",
-		PointHighlightStroke: "rgba(255, 87, 0, 1)",
+		PointHighlightStroke: "rgba(60,141,188,1)",
+		ShowLine:             true,
+		Fill:                 false,
+	})
+
+	return LinePlot{
+		Labels:   L,
+		Datasets: DS,
+	}
+
+}
+
+func getDrives() LinePlot {
+	AT := ParseAllThrowsCSV()
+
+	var L []string
+	var ds []int
+
+	cur_round := ""
+	i := -1
+	for _, r := range AT {
+		if cur_round != r.Round {
+			cur_round = r.Round
+			L = append(L, r.Date)
+			ds = append(ds, 0)
+			i++
+		}
+
+		if int(r.Dist) > ds[i] {
+			ds[i] = int(r.Dist)
+		}
+	}
+
+	var DS []LineDataset
+	DS = append(DS, LineDataset{
+		Label:                "Long Drive",
+		Data:                 ds,
+		BackgroundColor:      "rgba(167, 36, 193, 1)",
+		BorderColor:          "rgba(167, 36, 193, 1)",
+		PointRadius:          5,
+		PointColor:           "#3b8bba",
+		PointStrokeColor:     "rgba(167, 36, 193, 1)",
+		PointHighlightFill:   "#fff",
+		PointHighlightStroke: "rgba(167, 36, 193, 1)",
 		ShowLine:             true,
 		Fill:                 false,
 	})
@@ -345,16 +389,12 @@ func MakeDash() {
 	homedir, _ := os.UserHomeDir()
 	dashFile := filepath.Join(homedir, ".discgolf", "stats", "dash.json")
 
-	scores := getScores()
-	discs := getDiscs()
-	rounds := getRounds()
-	putts := getPutts()
-
 	D := Dash{
-		Scores: scores,
-		Discs:  discs,
-		Rounds: rounds,
-		Putts:  putts,
+		Scores: getScores(),
+		Discs:  getDiscs(),
+		Rounds: getRounds(),
+		Putts:  getPutts(),
+		Drives: getDrives(),
 	}
 
 	file, _ := json.MarshalIndent(D, "", "	")

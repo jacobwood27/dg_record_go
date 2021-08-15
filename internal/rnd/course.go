@@ -117,7 +117,7 @@ func (c Course) DrawSummary() {
 					Hole: holename,
 					Tee:  teename,
 					Pin:  pinname,
-					Dist: math.Round(dist(t.Loc, p.Loc) * 3.28),
+					Dist: math.Round(Dist(t.Loc, p.Loc) * 3.28),
 					Par:  par,
 				})
 			}
@@ -156,7 +156,6 @@ func (c Course) SaveCourseJSON() {
 
 func inferCourse(l Loc) Course {
 	crs_path := path.Join(RootDir(), "..", "data", "courses")
-	fmt.Println(crs_path)
 	files, e := os.ReadDir(crs_path)
 	if e != nil {
 		panic(e)
@@ -166,7 +165,7 @@ func inferCourse(l Loc) Course {
 	best_dist := 999.9
 	for _, file := range files {
 		c := ParseCourseJSON(path.Join(crs_path, file.Name()))
-		this_dist := dist(c.Loc, l)
+		this_dist := Dist(c.Loc, l)
 
 		if this_dist < best_dist {
 			best_c = c
@@ -175,4 +174,9 @@ func inferCourse(l Loc) Course {
 	}
 
 	return best_c
+}
+
+func GetCourse(courseID string) Course {
+	crs_path := path.Join(RootDir(), "..", "data", "courses")
+	return ParseCourseJSON(path.Join(crs_path, courseID+".json"))
 }

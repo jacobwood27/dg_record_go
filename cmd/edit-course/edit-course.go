@@ -230,8 +230,7 @@ func main() {
 	http.Handle("/data/", http.StripPrefix("/data/", http.FileServer(http.Dir("."))))
 
 	// serve up for local use
-	http.ListenAndServe(":8081", nil)
-
 	fmt.Println("Edit the course at 0.0.0.0:8081")
+	http.ListenAndServe(":8081", nil)
 
 }

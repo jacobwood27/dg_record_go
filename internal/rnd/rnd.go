@@ -6,7 +6,7 @@ import (
 
 type Loc []float64
 
-func dist(l1 Loc, l2 Loc) float64 {
+func Dist(l1 Loc, l2 Loc) float64 {
 	R := 6378000.0
 
 	φ1 := l1[0] * 3.14159 / 180.0

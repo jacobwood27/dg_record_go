@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"strconv"
+	"strings"
 )
 
 type RoundRow struct {
@@ -78,7 +79,7 @@ func inferHole(l Loc, c Course) (Hole, Tee) {
 	for _, h := range c.Holes {
 		for _, t := range h.Tees {
 
-			this_dist := dist(t.Loc, l)
+			this_dist := Dist(t.Loc, l)
 
 			if this_dist < best_dist {
 				bestH = h
@@ -96,7 +97,7 @@ func inferPin(l Loc, h Hole) Pin {
 	best_dist := 9999.9
 
 	for _, p := range h.Pins {
-		this_dist := dist(p.Loc, l)
+		this_dist := Dist(p.Loc, l)
 
 		if this_dist < best_dist {
 			bestP = p
@@ -171,18 +172,18 @@ func ProcessStamps(ts Stamps, c Course) RoundTable {
 	for i, s := range ts {
 
 		h_n, t_n := inferHole(s.Loc, c)
-		d_tee := dist(s.Loc, t_n.Loc)
+		d_tee := Dist(s.Loc, t_n.Loc)
 
 		d_pin := 999.9
 		p := Pin{}
 		if i > 0 {
 			p = inferPin(ts[i-1].Loc, h)
-			d_pin = dist(ts[i-1].Loc, p.Loc)
+			d_pin = Dist(ts[i-1].Loc, p.Loc)
 		}
 
 		nextDriveDist := 0.0
 		if i < len(ts)-1 {
-			nextDriveDist = dist(ts[i+1].Loc, ts[i].Loc)
+			nextDriveDist = Dist(ts[i+1].Loc, ts[i].Loc)
 		}
 
 		if i > 0 && d_tee < teeThresh && d_pin < pinThresh && nextDriveDist > driveThresh {
@@ -378,7 +379,7 @@ func (rt Round) DrawSummary() {
 				Hole:   h.ID,
 				Tee:    t.ID,
 				Pin:    p.ID,
-				Dist:   math.Round(3.281 * dist(t.Loc, p.Loc)),
+				Dist:   math.Round(3.281 * Dist(t.Loc, p.Loc)),
 				Par:    h.Par(t.ID, p.ID),
 				Score:  hole_tot,
 				Result: result,
@@ -400,7 +401,7 @@ func (rt Round) DrawSummary() {
 		Hole:   h.ID,
 		Tee:    t.ID,
 		Pin:    p.ID,
-		Dist:   math.Round(3.281 * dist(t.Loc, p.Loc)),
+		Dist:   math.Round(3.281 * Dist(t.Loc, p.Loc)),
 		Par:    h.Par(t.ID, p.ID),
 		Score:  hole_tot,
 		Result: result,
@@ -509,4 +510,63 @@ func (rt Round) DrawSummary() {
 
 	file, _ := json.MarshalIndent(rgj, "", "	")
 	_ = ioutil.WriteFile("round_vis.json", file, 0644)
+}
+
+func ReadRoundCSV(filename string) Round {
+	f, err := os.Open(filename)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+
+	rnd := Round{}
+
+	r := csv.NewReader(f)
+	r.FieldsPerRecord = -1
+
+	l, _ := r.Read()
+	rnd.ID = strings.TrimPrefix(l[0], "RoundID: ")
+
+	l, _ = r.Read()
+	rnd.CourseID = strings.TrimPrefix(l[0], "CourseID: ")
+	rnd.Course = GetCourse(rnd.CourseID)
+
+	l, _ = r.Read()
+	rnd.CourseName = strings.TrimPrefix(l[0], "CourseName: ")
+
+	l, _ = r.Read()
+	rnd.Notes = strings.TrimPrefix(l[0], "Notes: ")
+
+	r.Read()
+
+	row := 0
+	for {
+		line, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		hole := line[0]
+		tee := line[1]
+		pin := line[2]
+		lat, _ := strconv.ParseFloat(line[4], 64)
+		lon, _ := strconv.ParseFloat(line[5], 64)
+		disc := line[6]
+
+		rnd.Data = append(rnd.Data, RoundRow{
+			RowNum: row,
+			HoleID: hole,
+			TeeID:  tee,
+			PinID:  pin,
+			Lat:    lat,
+			Lon:    lon,
+			Disc:   disc,
+		})
+
+		row++
+	}
+	return rnd
 }

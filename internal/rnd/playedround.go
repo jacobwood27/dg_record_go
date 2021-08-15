@@ -238,14 +238,18 @@ func (r Round) WriteCSV() {
 	w.Write([]string{"CourseName: " + r.CourseName})
 	w.Write([]string{"Notes: " + r.Notes})
 	w.Write([]string{""})
-	w.Write([]string{"row", "hole", "tee", "pin", "lat", "lon", "disc"})
+	w.Write([]string{"hole", "tee", "pin", "par", "lat", "lon", "disc"})
 
 	for _, l := range r.Data {
+
+		h := r.Course.GetHole(l.HoleID)
+		par := h.Par(l.TeeID, l.PinID)
+
 		w.Write([]string{
-			strconv.Itoa(l.RowNum),
 			l.HoleID,
 			l.TeeID,
 			l.PinID,
+			strconv.Itoa(par),
 			fmt.Sprintf("%f", l.Lat),
 			fmt.Sprintf("%f", l.Lon),
 			l.Disc,

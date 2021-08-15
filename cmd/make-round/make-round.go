@@ -98,8 +98,8 @@ func main() {
 	// m := matches[0]
 	// fID := m[:len(m)-8]
 
-	ts_csv := "ts.csv"
-	rec_gpx := "rec.gpx"
+	ts_csv := "/home/woojac/.discgolf/rounds/2021-08-03-13-25_sunset_park/ts.csv"
+	rec_gpx := "/home/woojac/.discgolf/rounds/2021-08-03-13-25_sunset_park/rec.gpx"
 
 	ts, fID := rnd.GetRoundRaw(ts_csv, rec_gpx)
 

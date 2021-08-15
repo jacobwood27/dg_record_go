@@ -38,4 +38,5 @@ func main() {
 	MakeAllThrowsCSV(rnds)
 	MakeAllHolesCSV(rnds)
 	MakeAllRoundsCSV(rnds)
+	MakeDash()
 }

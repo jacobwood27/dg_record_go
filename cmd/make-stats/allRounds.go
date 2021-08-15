@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -103,4 +104,36 @@ func MakeAllRoundsCSV(rnds []rnd.Round) {
 		w.Write(t.asStrings())
 	}
 
+}
+
+func ParseAllRoundsCSV() AllRounds {
+	homedir, _ := os.UserHomeDir()
+	arCSV := filepath.Join(homedir, ".discgolf", "stats", "all_rounds.csv")
+
+	f, _ := os.Open(arCSV)
+	defer f.Close()
+	var AR AllRounds
+	r := csv.NewReader(f)
+	r.Read() // burn header
+	for {
+		line, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+
+		num_holes, _ := strconv.Atoi(line[3])
+		par, _ := strconv.Atoi(line[4])
+		total, _ := strconv.Atoi(line[5])
+		score, _ := strconv.Atoi(line[6])
+		AR = append(AR, RoundRow{
+			Date:     line[0],
+			Course:   line[1],
+			Round:    line[2],
+			NumHoles: num_holes,
+			Par:      par,
+			Total:    total,
+			Score:    score,
+		})
+	}
+	return AR
 }

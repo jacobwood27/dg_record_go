@@ -372,7 +372,9 @@ func getRounds() []DashRound {
 	var D []DashRound
 
 	AR := ParseAllRoundsCSV()
-	for _, r := range AR {
+	// for i, r := range AR {
+	for i := len(AR) - 1; i >= 0; i-- {
+		r := AR[i]
 		score := strconv.Itoa(r.Score)
 		D = append(D, DashRound{
 			ID:     r.Round,

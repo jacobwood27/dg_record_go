@@ -19,6 +19,7 @@ type LineDataset struct {
 	Data                 []int  `json:"data"`
 	BackgroundColor      string `json:"backgroundColor"`
 	BorderColor          string `json:"borderColor"`
+	BorderWidth          int    `json:"borderWidth"`
 	PointRadius          int    `json:"pointRadius"`
 	PointColor           string `json:"pointColor"`
 	PointStrokeColor     string `json:"pointStrokeColor"`
@@ -50,11 +51,12 @@ type DashRound struct {
 }
 
 type Dash struct {
-	Scores LinePlot    `json:"scores"`
-	Discs  []Disc      `json:"discs"`
-	Rounds []DashRound `json:"rounds"`
-	Putts  LinePlot    `json:"putts"`
-	Drives LinePlot    `json:"drives"`
+	Scores       LinePlot    `json:"scores"`
+	Discs        []Disc      `json:"discs"`
+	Rounds       []DashRound `json:"rounds"`
+	Putts        LinePlot    `json:"putts"`
+	Drives       LinePlot    `json:"drives"`
+	DiscSelction LinePlot    `json:"disc_selection"`
 }
 
 type myDisc struct {
@@ -175,6 +177,7 @@ func getScores() LinePlot {
 		Data:                 ds,
 		BackgroundColor:      "rgba(60,141,188,0.9)",
 		BorderColor:          "rgba(60,141,188,0.8)",
+		BorderWidth:          3,
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
 		PointStrokeColor:     "rgba(60,141,188,1)",
@@ -255,6 +258,7 @@ func getPutts() LinePlot {
 		Data:                 ds_10,
 		BackgroundColor:      "rgba(167, 36, 193, 1)",
 		BorderColor:          "rgba(167, 36, 193, 1)",
+		BorderWidth:          3,
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
 		PointStrokeColor:     "rgba(167, 36, 193, 1)",
@@ -273,6 +277,7 @@ func getPutts() LinePlot {
 		Data:                 ds_20,
 		BackgroundColor:      "rgba(0, 188, 212, 1)",
 		BorderColor:          "rgba(0, 188, 212, 1)",
+		BorderWidth:          3,
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
 		PointStrokeColor:     "rgba(0, 188, 212, 1)",
@@ -291,6 +296,7 @@ func getPutts() LinePlot {
 		Data:                 ds_33,
 		BackgroundColor:      "rgba(214, 220, 57, 1)",
 		BorderColor:          "rgba(214, 220, 57, 1)",
+		BorderWidth:          3,
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
 		PointStrokeColor:     "rgba(214, 220, 57, 1)",
@@ -309,6 +315,7 @@ func getPutts() LinePlot {
 		Data:                 ds_66,
 		BackgroundColor:      "rgba(60,141,188,0.9)",
 		BorderColor:          "rgba(60,141,188,0.8)",
+		BorderWidth:          3,
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
 		PointStrokeColor:     "rgba(60,141,188,1)",
@@ -352,6 +359,7 @@ func getDrives() LinePlot {
 		Data:                 ds,
 		BackgroundColor:      "rgba(167, 36, 193, 1)",
 		BorderColor:          "rgba(167, 36, 193, 1)",
+		BorderWidth:          3,
 		PointRadius:          5,
 		PointColor:           "#3b8bba",
 		PointStrokeColor:     "rgba(167, 36, 193, 1)",
@@ -387,16 +395,116 @@ func getRounds() []DashRound {
 	return D
 }
 
+func contains(s []string, e string) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
+}
+
+func plus(a []int, b []int) []int {
+	var c []int
+	for i := range a {
+		c = append(c, a[i]+b[i])
+	}
+	return c
+}
+
+func frac(a []int, b []int) []int {
+	var c []int
+	for i := range a {
+		c = append(c, (100*a[i])/b[i])
+	}
+	return c
+}
+
+func getDiscSelection() LinePlot {
+	AT := ParseAllThrowsCSV()
+
+	var discs []string
+	for _, r := range AT {
+		if !contains(discs, r.Disc) {
+			discs = append(discs, r.Disc)
+		}
+	}
+
+	blankD := make(map[string][]int)
+	for _, d := range discs {
+		blankD[d] = append(blankD[d], 0)
+	}
+
+	var tc []int
+
+	var L []string
+
+	cur_round := ""
+	i := -1
+	for _, r := range AT {
+		if cur_round != r.Round {
+			cur_round = r.Round
+			L = append(L, r.Date)
+			i++
+			for _, d := range discs {
+				blankD[d] = append(blankD[d], 0)
+			}
+			tc = append(tc, 0)
+		}
+
+		blankD[r.Disc][i]++
+		tc[i]++
+	}
+
+	var DS []LineDataset
+	var e_tot []int
+	for range L {
+		e_tot = append(e_tot, 0)
+	}
+
+	color_list := []string{"#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab"} // from https://observablehq.com/@d3/color-schemes?collection=@d3/d3-scale-chromatic
+
+	i = 0
+	for k, e := range blankD {
+		e_tot = plus(e_tot, e)
+		DS = append(DS, LineDataset{
+			Label:                k,
+			Data:                 frac(e_tot, tc),
+			BackgroundColor:      color_list[i],
+			BorderColor:          color_list[i],
+			BorderWidth:          0,
+			PointRadius:          0,
+			PointColor:           "#3b8bba",
+			PointStrokeColor:     color_list[i],
+			PointHighlightFill:   "#fff",
+			PointHighlightStroke: color_list[i],
+			ShowLine:             true,
+			Fill:                 true,
+		})
+		i++
+		if i == len(color_list) {
+			i = 0
+		}
+	}
+
+	return LinePlot{
+		Labels:   L,
+		Datasets: DS,
+	}
+
+}
+
 func MakeDash() {
 	homedir, _ := os.UserHomeDir()
 	dashFile := filepath.Join(homedir, ".discgolf", "stats", "dash.json")
 
 	D := Dash{
-		Scores: getScores(),
-		Discs:  getDiscs(),
-		Rounds: getRounds(),
-		Putts:  getPutts(),
-		Drives: getDrives(),
+		Scores:       getScores(),
+		Discs:        getDiscs(),
+		Rounds:       getRounds(),
+		Putts:        getPutts(),
+		Drives:       getDrives(),
+		DiscSelction: getDiscSelection(),
 	}
 
 	file, _ := json.MarshalIndent(D, "", "	")

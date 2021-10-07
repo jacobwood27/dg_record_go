@@ -1,0 +1,839 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "1_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.289173066616,
+					45.271543598973
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "1_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.289173066616,
+						45.271543598973
+					],
+					[
+						-111.288077384233,
+						45.2715832385227
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "1_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.288077384233,
+					45.2715832385227
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "2_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.287823915482,
+					45.2715077345946
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "2_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.287823915482,
+						45.2715077345946
+					],
+					[
+						-111.286438554525,
+						45.271723864321
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "2_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.286438554525,
+					45.271723864321
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "3_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.286126077175,
+					45.2717455716279
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "3_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.286126077175,
+						45.2717455716279
+					],
+					[
+						-111.286745667458,
+						45.2719503749413
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "3_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.286745667458,
+					45.2719503749413
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "4_long",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.287005841732,
+					45.2720287096538
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "4_long-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.287005841732,
+						45.2720287096538
+					],
+					[
+						-111.285753250122,
+						45.2722193551288
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "4_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.285753250122,
+					45.2722193551288
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "5_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.285686194897,
+					45.272423212948
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "5_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.285686194897,
+						45.272423212948
+					],
+					[
+						-111.284807771444,
+						45.2723599793509
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "5_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.284807771444,
+					45.2723599793509
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "6_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.284754127264,
+					45.2724038653623
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "6_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.284754127264,
+						45.2724038653623
+					],
+					[
+						-111.284117102623,
+						45.2723571479942
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "6_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.284117102623,
+					45.2723571479942
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "7_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.283244043589,
+					45.2723590355653
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "7_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.283244043589,
+						45.2723590355653
+					],
+					[
+						-111.281980723143,
+						45.271833344567
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "7_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.281980723143,
+					45.271833344567
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "8_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.28246486187,
+					45.2718814780566
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "8_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.28246486187,
+						45.2718814780566
+					],
+					[
+						-111.28178358078,
+						45.2714548817852
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "8_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.28178358078,
+					45.2714548817852
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "14_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.282784044743,
+					45.2715813509257
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "14_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.282784044743,
+						45.2715813509257
+					],
+					[
+						-111.283599436283,
+						45.2717993679616
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "14_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.283599436283,
+					45.2717993679616
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "15_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.283922642469,
+					45.2718824218501
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "15_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.283922642469,
+						45.2718824218501
+					],
+					[
+						-111.284265965223,
+						45.2720957187799
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "15_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.284265965223,
+					45.2720957187799
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "16_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.28477960825,
+					45.2722835326694
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "16_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.28477960825,
+						45.2722835326694
+					],
+					[
+						-111.285074651241,
+						45.2719296115054
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "16_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.285074651241,
+					45.2719296115054
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "17_reg",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.285093426704,
+					45.2718503328621
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "17_reg-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.285093426704,
+						45.2718503328621
+					],
+					[
+						-111.285320073366,
+						45.2716332598197
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "17_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.285320073366,
+					45.2716332598197
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee",
+				"disc_name": "",
+				"name": "18_long",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.285658031702,
+					45.2715738005372
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "tee-\u003epin",
+				"disc_name": "",
+				"name": "18_long-\u003ex",
+				"par": 3,
+				"res": 0
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-111.285658031702,
+						45.2715738005372
+					],
+					[
+						-111.287280768156,
+						45.2709206881273
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"thing": "pin",
+				"disc_name": "",
+				"name": "18_x",
+				"par": 0,
+				"res": 0
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-111.287280768156,
+					45.2709206881273
+				]
+			}
+		}
+	],
+	"table": [
+		{
+			"hole": "1",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 282,
+			"par": 3
+		},
+		{
+			"hole": "2",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 365,
+			"par": 3
+		},
+		{
+			"hole": "3",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 176,
+			"par": 3
+		},
+		{
+			"hole": "4",
+			"tee": "long",
+			"pin": "x",
+			"dist": 329,
+			"par": 3
+		},
+		{
+			"hole": "5",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 227,
+			"par": 3
+		},
+		{
+			"hole": "6",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 165,
+			"par": 3
+		},
+		{
+			"hole": "7",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 377,
+			"par": 3
+		},
+		{
+			"hole": "8",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 234,
+			"par": 3
+		},
+		{
+			"hole": "14",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 224,
+			"par": 3
+		},
+		{
+			"hole": "15",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 118,
+			"par": 3
+		},
+		{
+			"hole": "16",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 150,
+			"par": 3
+		},
+		{
+			"hole": "17",
+			"tee": "reg",
+			"pin": "x",
+			"dist": 98,
+			"par": 3
+		},
+		{
+			"hole": "18",
+			"tee": "long",
+			"pin": "x",
+			"dist": 480,
+			"par": 3
+		}
+	]
+}
